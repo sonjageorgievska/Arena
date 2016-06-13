@@ -1,1 +1,2 @@
 Links in this document. pdfs directly in folder
+This folder can also include comments about related work that are important for our work or that need to be mentioned in the paper(s). 
