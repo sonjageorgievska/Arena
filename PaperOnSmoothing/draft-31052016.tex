@@ -1,0 +1,114 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\begin{document}
+
+\title{Crowd density estimation from Wi-Fi positioning data in the Amsterdam Arena}
+\maketitle
+
+\begin{abstract}
+We present the Amsterdam Arena project, which involves observing and managing crowd behaviour, using the Amsterdam Arena stadium as a living laboratory. The main scientific question we explore is how to detect anomalous behaviour in large crowds in real time. The main purpose is to be able to predict a possible crowd disaster and identify means to prevent it from happening. 
+Human crowds are complex systems, and predicting or controlling their behaviour is challenging. Our approach involves three phases, firstly data collection from Wi-Fi and Bluetooth sensors in the stadium, secondly data analytics, and finally we aim to use simulation to make forecasts about the crowd dynamics. 
+Here we present initial results on the data analytics and show how we can extract density maps from Wi-Fi positioning data. The technology we deploy is based on the Wi-Fi signals from smart phones. We use the existing network of Wi-Fi access points in the stadium, and capture probe signals from smart phones, which are processed and anonymised in alignment with privacy concerns. The positions of smart phones are reconstructed using received signal strengths and methods similar to trilateration. The data provides us with real-time information on spatial distributions of crowd density, which is an essential indicator of the criticality of crowd conditions. To visualise the spatiotemporal behaviour of crowd density in real-time we dynamically generate heat maps along a moving time interval. The heat maps are generated through the statistical modelling of the positioning data. The generation of dynamic heat maps allows us to detect and locate hot-spots of density where crowd conditions reach critical values that could possibly lead to a disaster.
+\end{abstract}
+
+\section{Introduction}
+
+We present the Amsterdam Arena project, which involves observing and managing crowd behavior, using the Amsterdam Arena stadium as a living laboratory. The main scientific question we explore is how to detect anomalous behavior in large crowds in real time. 
+
+\begin{itemize}
+
+\item Background\\
+
+Human crowds are complex systems, and predicting or controlling their behavior is challenging. Our approach involves three phases, firstly data collection from Wi-Fi and Bluetooth sensors in the stadium, secondly data analytics, and finally we aim to use simulation to make forecasts about the crowd dynamics. 
+
+In this paper we present initial results on the data analytics and show how we can extract density maps from Wi-Fi positioning data. 
+
+\item Aims\\
+
+The main purpose is to be able to predict a possible crowd disaster and identify means to prevent it from happening. 
+
+\item Related work\\
+
+Measuring crowd density by tracking the location of smart phones has been done in:
+
+(Wirz \textit{et al.} 2012) \cite{wirz:1} and (Wirz \textit{et al.} 2013) \cite{wirz:2} use GPS data of people that use an App.\\
+(Weppner \textit{et al.} 2014) \cite{weppner:1} use Bluetooth, however without positioning / tracking.\\
+(Schauer \textit{et al.} 2014) \cite{schauer:1} use Wi-Fi, without positioning / tracking.
+
+\end{itemize}
+
+\section{Data}
+
+\begin{itemize}
+\item Wi-Fi positioning
+\end{itemize}
+
+The technology we deploy is based on the Wi-Fi signals from smart phones. We use the existing network of Wi-Fi access points in the stadium, and capture probe signals from smart phones, which are processed and anonymised in alignment with privacy concerns. The positions of smart phones are reconstructed using received signal strengths and methods similar to trilateration. 
+
+\begin{itemize}
+\item How are the uncertainties (errors) generated and what do they mean?
+\end{itemize}
+
+\section{Methods}
+
+The data provides us with real-time information on spatial distributions of crowd density, which is an essential indicator of the criticality of crowd conditions. 
+
+\subsection{Density estimation}
+
+To visualise the spatiotemporal behaviour of crowd density in real-time we dynamically generate heat maps along a moving time interval. The heat maps are generated through the statistical modeling of the positioning data. The generation of dynamic heat maps allows us to detect and locate hot-spots of density where crowd conditions reach critical values that could possibly lead to a disaster.
+
+\begin{itemize}
+\item The method we use is similar to Kernel Density Estimation, but what we are doing is not actual smoothing (?).
+\end{itemize}
+
+To construct two-dimensional probability density functions we apply non-parametric density estimation.
+To make density histograms we consider a two-dimensional binned region of space, and count the number of positions that fall into each bin. For each bin location $X$, in the time interval $t$, we apply the kernel density estimation (KDE) method \cite{scott}\cite{silverman} given by
+
+\begin{equation}
+\hat{d}(X,t)=\frac{1}{N }\sum_{i=1}^{N} K_{h_{x}} (x-x_{i}) K_{h_{y}} (y-y_{i})
+\label{kde}
+\end{equation}
+
+where $K_{h_{u}}$ is the kernel function $K_{h}(u)=K(u/h)/h$, $h$ is the smoothing parameter, or bandwidth, and $N$ is the number of data points (positions) in the time interval $t$.
+
+The bandwith parameter $h$ is crucial for the accuracy of the density estimate. 
+Several theoretical approaches are possible.
+Here we base our choice of kernel bandwidth values $h$ on the error values $(\sigma_{x},\sigma_{y})$ provided by the positioning methods (see Section ).
+
+\subsection{Real-time data analysis}
+
+To process positioning data in real-time during events, we consider data within a specific moving time window.
+To take in account that visitors are moving, we subdivide the time window in multiple sub-windows and attach more weight to measurements in later sub-windows. The weighting scheme is given by
+
+\begin{equation}
+\hat{d}(X,t)=\frac{w_{1}\hat{f}(X,t_{1})+w_{2}\hat{f}(X,t_{2})+...+w_{m}\hat{f}(X,t_{m})}{w_{1}N_{1}+w_{2}N_{2}+...+w_{m}N_{m}}
+\end{equation}
+
+\noindent where $\hat{f}(X,t)$ is the non-normalized sum of smoothed counts ($N\times\hat{d}(X,t)$) in Equation \ref{kde}, $w_{k}$ is the weight value given to sub-window $k$, and $m$ is the number of sub-windows.
+
+\subsection{Systematic evaluation}
+
+\begin{itemize}
+\item Simulation?\\
+Do we include simulation of the positioning process, i.e. the toy Monte Carlo simulation, or do we generate fitted positions with error values, and only test the density estimation methods?
+\end{itemize}
+
+\section{Results}
+
+
+
+\section{Discussion}
+
+\begin{itemize}
+\item Future work
+\item Conclusion
+\end{itemize}
+
+\bibliography{references}
+\bibliographystyle{plain}
+
+\end{document}
