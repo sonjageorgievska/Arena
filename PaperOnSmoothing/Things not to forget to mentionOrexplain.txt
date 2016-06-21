@@ -1,0 +1,19 @@
+Video vs wi-fi estimation : wi-fi works better for more congested scenarios
+and works better in night events wehre the lights is dimmed (concerts,
+festivals). I our case, the bigger the data , the more cancelation of errors
+(because we are using the law of the large numbers) 
+
+While we are at the law of large numbers, I should explain that even though our observations are not independent,
+we can still use this laws. Namely, the observations are correlated: two MACS that are neighbours will tend to give similar fitted data. 
+But in this case the variance of the sum tends to the average correlation as n approaches infinity. If the average correlation tends to 0 when n-> infinity(which it does, right?) then no problem here. 
+https://en.wikipedia.org/wiki/Variance#Sum_of_correlated_variables
+
+0. start why generally (crowd disasters from extreme density)
+1. Start with why wi-fi (suplement to video analysis)
+2. Start with fitted data and other papers that have used wi-fi
+3. all the errors that come with it (e.g.bi-modal distribution due to interference and due to multiple local optima)
+4. randomization
+5. data is sparse (not every second) and interpolation would not work 
+
+How we address  those challenges and how we validate our methodology 
+
