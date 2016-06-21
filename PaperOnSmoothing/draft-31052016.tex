@@ -33,13 +33,20 @@ The main purpose is to be able to predict a possible crowd disaster and identify
 
 \item Related work\\
 
+\end{itemize}
+
 Measuring crowd density by tracking the location of smart phones has been done in:
 
 (Wirz \textit{et al.} 2012) \cite{wirz:1} and (Wirz \textit{et al.} 2013) \cite{wirz:2} use GPS data of people that use an App.\\
 (Weppner \textit{et al.} 2014) \cite{weppner:1} use Bluetooth, however without positioning / tracking.\\
-(Schauer \textit{et al.} 2014) \cite{schauer:1} use Wi-Fi, without positioning / tracking.
+(Schauer \textit{et al.} 2014) \cite{schauer:1} use Wi-Fi, without positioning / tracking.\\
 
-\end{itemize}
+Wirz \textit{et al.} (2012) \cite{wirz:1} infer crowd density from GPS location traces of people who use an App during the 2011 Lord Mayor Show in London. They visualize the data in real-time, and generate heat maps (dynamically) using the kernel density estimation (KDE) method. In (Wirz \textit{et al.} 2013) \cite{wirz:2} the methodology is presented more elaborately, using a real-world data set collected during the same festival. The relation between the number of App users and the crowd density is calibrated (using linear regression), which forms the basis of their participatory sensing method. 
+The accuracy of the smoothing method is assessed using ground truth crowd density information obtained from video footage recorded by CCTV cameras. 
+The influence of the kernel radius on the correlation between the actual density and the density of App is analysed.
+
+The Gaussian weight function is introduced in Helbing \textit{et al.} (2007) \cite{helbing:1} to estimate local densities in an area captured by video cameras during the Hajj in Mina/Makkah in 1426H on January 12, 2006.
+
 
 \section{Data}
 
