@@ -1,0 +1,44 @@
+\begin{thebibliography}{1}
+
+\bibitem{helbing:1}
+D.~Helbing and A.~Johansson.
+\newblock The.
+\newblock {\em Physical Review E}, 75, 2007.
+
+\bibitem{schauer:1}
+L.~Schauer, M.~Werner, and P.~Marcus.
+\newblock Estimating crowd densities and pedestrian flows using wi-fi and
+  bluetooth.
+\newblock In {\em 11th International Conference on Mobile and Ubiquitous
+  Systems: Computing, Networking and Services (MOBIQUITOUS 2014)}, 2014.
+
+\bibitem{scott}
+D.W. Scott.
+\newblock {\em Multivariate Density Estimation.}
+\newblock New York: Wiley, 1992.
+
+\bibitem{silverman}
+B.W. Silverman.
+\newblock {\em Density Estimation for Statistics and Data Analysis.}
+\newblock London: Chapman and Hall, 1986.
+
+\bibitem{weppner:1}
+J.~Weppner, P.~Lukowicz, U.~Blanke, and G.~Tröster.
+\newblock Participatory bluetooth scans serving as urban crowd probes.
+\newblock {\em IEEE Sensors Journal}, 14(12), 2014.
+
+\bibitem{wirz:1}
+M.~Wirz, T.~Franke, D.~Roggen, E.~Mitleton-Kelly, P.~Lukowicz, and G.~Tröster.
+\newblock Inferring and visualizing crowd conditions by collecting gps location
+  traces from pedestrians mobile phones for real-time crowd monitoring during
+  city-scale mass gatherings.
+\newblock In {\em Collaborative Technology for Coordinating Crisis Management
+  (CT2CM) track of WETICE-2012}, 2012.
+
+\bibitem{wirz:2}
+M.~Wirz, T.~Franke, D.~Roggen, E.~Mitleton-Kelly, P.~Lukowicz, and G.~Tröster.
+\newblock Probing crowd density through smartphones in city-scale mass
+  gatherings.
+\newblock {\em EPJ Data Science}, 2(5), 2013.
+
+\end{thebibliography}
