@@ -1,4 +1,9 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{delafontaine:1}
+M.~Delafontaine, M.~Versichele, T.~Neutens, and N.~Van de~Weghe.
+\newblock Analysing spatiotemporal sequences in bluetooth tracking data.
+\newblock {\em Applied Geography}, 34:659--668, 2012.
 
 \bibitem{helbing:1}
 D.~Helbing and A.~Johansson.
@@ -22,10 +27,23 @@ B.W. Silverman.
 \newblock {\em Density Estimation for Statistics and Data Analysis.}
 \newblock London: Chapman and Hall, 1986.
 
+\bibitem{versichele:1}
+M.~Versichele, T.~Neutens, M.~Delafontaine, and N.~Van de~Weghe.
+\newblock The use of bluetooth for analysing spatiotemporal dynamics of human
+  movement at mass events: A case study of the ghent festivities.
+\newblock {\em Applied Geography}, 32:208--220, 2012.
+
 \bibitem{weppner:1}
+J.~Weppner and P.~Lukowicz.
+\newblock Bluetooth based collaborative crowd density estimation with mobile
+  phones.
+\newblock In {\em IEEE International Conference on Pervasive Computing and
+  Communications (PerCom)}, 2013.
+
+\bibitem{weppner:2}
 J.~Weppner, P.~Lukowicz, U.~Blanke, and G.~Tröster.
 \newblock Participatory bluetooth scans serving as urban crowd probes.
-\newblock {\em IEEE Sensors Journal}, 14(12), 2014.
+\newblock {\em IEEE SENSORS JOURNAL}, 14(12), 2014.
 
 \bibitem{wirz:1}
 M.~Wirz, T.~Franke, D.~Roggen, E.~Mitleton-Kelly, P.~Lukowicz, and G.~Tröster.
@@ -40,5 +58,11 @@ M.~Wirz, T.~Franke, D.~Roggen, E.~Mitleton-Kelly, P.~Lukowicz, and G.~Tröster.
 \newblock Probing crowd density through smartphones in city-scale mass
   gatherings.
 \newblock {\em EPJ Data Science}, 2(5), 2013.
+
+\bibitem{yoshimura:1}
+Y.~Yoshimura, A.~Krebs, and C.~Ratti.
+\newblock An analysis of visitors’ length of stay through noninvasive
+  bluetooth monitoring in the louvre museum.
+\newblock arXiv:1605.00108, 2016.
 
 \end{thebibliography}

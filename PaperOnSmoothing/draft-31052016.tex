@@ -15,8 +15,9 @@
 We present the Amsterdam Arena project, which involves observing and managing crowd behaviour, using the Amsterdam Arena stadium as a living laboratory. The main scientific question we explore is how to detect anomalous behaviour in large crowds in real time. The main purpose is to be able to predict a possible crowd disaster and identify means to prevent it from happening. 
 Human crowds are complex systems, and predicting or controlling their behaviour is challenging. Our approach involves three phases, firstly data collection from Wi-Fi and Bluetooth sensors in the stadium, secondly data analytics, and finally we aim to use simulation to make forecasts about the crowd dynamics. 
 Here we present initial results on the data analytics and show how we can extract density maps from Wi-Fi positioning data. The technology we deploy is based on the Wi-Fi signals from smart phones. We use the existing network of Wi-Fi access points in the stadium, and capture probe signals from smart phones, which are processed and anonymised in alignment with privacy concerns. The positions of smart phones are reconstructed using received signal strengths and methods similar to trilateration. The data provides us with real-time information on spatial distributions of crowd density, which is an essential indicator of the criticality of crowd conditions. To visualise the spatiotemporal behaviour of crowd density in real-time we dynamically generate heat maps along a moving time interval. The heat maps are generated through the statistical modelling of the positioning data. The generation of dynamic heat maps allows us to detect and locate hot-spots of density where crowd conditions reach critical values that could possibly lead to a disaster.
-\end{abstract}
 \end{comment}
+\end{abstract}
+
 \section{Introduction}
 
 
@@ -106,17 +107,27 @@ Do we include simulation of the positioning process, i.e. the toy Monte Carlo si
 \end{itemize}
 
 \section{Related work}
-Measuring crowd density by tracking the location of smart phones has been done in:
-
-(Wirz \textit{et al.} 2012) \cite{wirz:1} and (Wirz \textit{et al.} 2013) \cite{wirz:2} use GPS data of people that use an App.\\
-(Weppner \textit{et al.} 2014) \cite{weppner:1} use Bluetooth, however without positioning / tracking.\\
-(Schauer \textit{et al.} 2014) \cite{schauer:1} use Wi-Fi, without positioning / tracking.\\
 
 Wirz \textit{et al.} (2012) \cite{wirz:1} infer crowd density from GPS location traces of people who use an App during the 2011 Lord Mayor Show in London. They visualize the data in real-time, and generate heat maps (dynamically) using the kernel density estimation (KDE) method. In (Wirz \textit{et al.} 2013) \cite{wirz:2} the methodology is presented more elaborately, using a real-world data set collected during the same festival. The relation between the number of App users and the crowd density is calibrated (using linear regression), which forms the basis of their participatory sensing method. 
 The accuracy of the smoothing method is assessed using ground truth crowd density information obtained from video footage recorded by CCTV cameras. 
 The influence of the kernel radius on the correlation between the actual density and the density of App is analysed.
 
-The Gaussian weight function is introduced in Helbing \textit{et al.} (2007) \cite{helbing:1} to estimate local densities in an area captured by video cameras during the Hajj in Mina/Makkah in 1426H on January 12, 2006.
+The Gaussian weight function used in (Wirz \textit{et al.} 2012; 2013) \cite{wirz:1}\cite{wirz:2} is introduced in Helbing \textit{et al.} (2007) \cite{helbing:1} to estimate local densities in an area captured by video cameras during the Hajj in Mina/Makkah in 1426H on January 12, 2006.\\
+
+A number of studies use Bluetooth to estimate crowd densities at a wide range of places and events.
+In these studies the position of a mobile phone is approximated to the location of the sensor by which it is detected.
+
+Schauer \textit{et al.} (2014) \cite{schauer:1} count unique MAC addresses detected by two sensors (nodes) at both sides (public and security) of a security check inside a major German airport, to estimate pedestrian densities and pedestrian flow. They consider time information, to determine the direction of a person's movement, and at least one RSSI value, to reduce the number of false positives in case devices are captured by both sensors. They compare Bluetooth and Wi-Fi based methods, and compare their methods to a known ground truth provided by the number of security checks.
+
+Versichele \textit{et al.} (2012) \cite{versichele:1} use Bluetooth scanners at strategic locations during the 10-day Ghent Festivities, to analyze spatio-temporal dynamics of pedestrians. 
+
+Yoshimura \textit{et al.} (2016) \cite{yoshimura:1} use Bluetooth detection to analyze visitors' behavior at the Louvre museum in Paris.
+
+Delafontaine \textit{et al.} (2012) \cite{delafontaine:1} use a similar approach (of Bluetooth tracking) and apply (genetic) sequence alignment methods to analyze the resulting data which consists of different sequences of sensors (nodes) for detected mobile devices.
+
+Weppner and Lukowicz (2013) \cite{weppner:1} estimate crowd densities during a soccer European championship public viewing event and during the Oktoberfest, by distributing volunteers in the crowd, who are carrying smart phones scanning for Bluetooth devices. They then use statistics to combine the different measurements in space and time.
+
+In Weppner \textit{et al.} (2014) \cite{weppner:2} similar methods are applied to a city-wide festival in Zurich 2013, now supported by GPS data.
 
 
 
