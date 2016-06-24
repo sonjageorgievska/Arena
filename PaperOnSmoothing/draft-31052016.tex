@@ -89,7 +89,7 @@ Under ideal circumstances, the positioning itself would suffice to estimate the 
 		\caption{Trilateration can lead to multiple local optima (cut the lower part from the picture)}
 		\label{fig:bimodal}
 	\end{figure} 
-	The resulting plot (for the x-coordinate) reveals a bimodal distribution of the estimation. We have observed such a distribution in a majority of the 20 randomly sampled MAC addresses. This phenomenon can be explained by the multiple local optima situation, because we did not observe bi-modal distributions in the signal strengths. 
+	The resulting plot (for the x-coordinate) reveals a bimodal distribution of the estimation. We have observed such a distribution in a majority of the 20 randomly sampled MAC addresses. This phenomenon can be explained by the multiple local optima situation, because we did not observe bi-modal distributions in the signal strengths. (***** Sonja: better to first write the observation of bimodality and then the multiple local optima possible explanation***)
 	
 \item {\it Volatility of packet rates}. When a MAC device is connected to the WI-Fi internet, it sends packets with a relatively stable rate. However, during concert hours, very few devices are actually connected to the internet, and most of our estimations of positions come from signals that the device sends in a "probing" mode. In this case the packet rate is quite volatile, ranging from a few seconds to a few minutes (some citation?). This means that when we make a snapshot of the MAC addresses visible in a certain moment, we are only detecting a small fraction of the MAC devices.   
 
@@ -98,6 +98,16 @@ Under ideal circumstances, the positioning itself would suffice to estimate the 
 
 
 \subsection{Addressing the issues: real-time crowd density estimation}
+
+*************from Sonja
+
+In order to deal with issue 1 from above, let us start with the following observation: we are not interested in the individual locations of the MAC devices, but rather in the density of the crowd; we would like especially to have more precise estimation when the density reaches a certain threshold, so that the crowd that is not in the dense region can be alarmed promptly to move away from the dense region. So, we are interested in estimating density accurately when the crowd is not in a state of movement (because if people are able to freely move, they are not in a danger). 
+This situation, dense crowd, means that there is more blockage of signals from bodies, less precise estimation of distance from Wi-Fi based on signal strength, which means that the rings in Fig.\ref{fig:trilateration_problem} would be even thicker. This exaggerates the effect of "bimodal" or even multi-modal distribution of position estimates. Thus, in a dense crowd, all we can derive from the positioning method for a MAC address is a probability distribution of its possible locations. For example, in the scenario in Fig. \ref{fig:trilateration_problem}, we can say that the MAC device is with a probability of 0.5 in the left grey region (region where all three rings overlap) and with a probability of 0.5 in the right grey region. While this does not provide us with useful information for the location of the MAC address, if we apply the same reasoning for all MAC addresses, and, for a region R we add together the probabilities for all MAC devices that they are in that region, we end up with an estimation of the number of MAC devices in that region. If we assume that the probability distributions of the locations of the MAC addresses are independent, we can directly apply the law of the large numbers and conclude that for a dense crowd the error of the estimation of the density per region will vanish. However, we cannot assume the mentioned independence, because people tend to go in groups to concerts. In this case, the variance of the estimation is equal to the average correlation between the distributions in the limiting case. Nevertheless, we can safely assume that for a regular crowd at a concert the average correlation tends to zero as the number of people increases; thus, the error of the estimation of the crowd density will in anyway vanish as the number of people tends to infinity. Formally, let R be an arbitrary region. (now I have to write some formulas, will continue on Monday)....
+
+
+***************end from Sonja
+
+***start from Philip
 
 \begin{comment}
 To visualise the spatiotemporal behaviour of crowd density in real-time we dynamically generate heat maps along a moving time interval. The heat maps are generated through the statistical modeling of the positioning data. The generation of dynamic heat maps allows us to detect and locate hot-spots of density where crowd conditions reach critical values that could possibly lead to a disaster.
