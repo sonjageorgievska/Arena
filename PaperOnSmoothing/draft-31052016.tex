@@ -118,18 +118,34 @@ To visualise the spatiotemporal behaviour of crowd density in real-time we dynam
 \end{itemize}
 
 To construct two-dimensional probability density functions we apply non-parametric density estimation.
-To make density histograms we consider a two-dimensional binned region of space, and count the number of positions that fall into each bin. For each bin location $X$, in the time interval $t$, we apply the kernel density estimation (KDE) method \cite{scott}\cite{silverman} given by
+For each bin location $X$, in the time interval $t$, we apply the kernel density estimation (KDE) method \cite{scott}\cite{silverman} given by
+
+The data provides us with a series of estimated positions, together with corresponding values for the uncertainty (see Section on Positioning).
+From the estimated positions we wish to generate density histograms.
+
+To make density estimates we consider a two-dimensional binned region of space, and count the number of positions that fall into each bin.
+We wish to visualize / preserve the uncertainty for each estimated position.
+Therefore we transform each bin count into a bivariate Gaussian, using the separate error values ($\sigma_{x}$ and $\sigma_{y}$) for each dimension / direction.
+For each MAC we construct a two-dimensional density function that is the sum of these smooth positions.
+Because the number of measurements are different for each detected MAC address (in the interval) we normalize each histogram separately.
+
+We sum all the density histograms to create the total probability density histogram, which should ideally integrate to the number of MAC's detected (in the interval).
+
+We smooth each position by evaluating the following function at each bin in the histogram, 
 
 \begin{equation}
-\hat{d}(X,t)=\frac{1}{N }\sum_{i=1}^{N} K_{h_{x}} (x-x_{i}) K_{h_{y}} (y-y_{i})
+\hat{d}(x,y)=K((x-x_{i}),\sigma_{x}) K((y-y_{i}),\sigma_{y})
 \label{kde}
 \end{equation}
-
-where $K_{h_{u}}$ is the kernel function $K_{h}(u)=K(u/h)/h$, $h$ is the smoothing parameter, or bandwidth, and $N$ is the number of data points (positions) in the time interval $t$.
-
-The bandwith parameter $h$ is crucial for the accuracy of the density estimate. 
-Several theoretical approaches are possible.
-Here we base our choice of kernel bandwidth values $h$ on the error values $(\sigma_{x},\sigma_{y})$ provided by the positioning methods (see Section ).
+where the location $(x,y)$ is expressed in bin unit, and where we use the kernel function
+\begin{equation}
+K(u,\sigma)=\frac{1}{\sigma\sqrt{2\pi}}\exp(\frac{u^2}{2\sigma^2})
+\end{equation}
+Because the distances are expressed in bin units we scale the sigma's  ($\sigma_{x}$ and $\sigma_{y}$) by dividing the error values $\epsilon$ by the bin size $h$ 
+\begin{equation}
+\sigma=\frac{\epsilon}{h}
+\end{equation}
+This implies that the bin size becomes the unit for our density estimates, and we generate probabilities for number of people per bin, which has the area $h\times h$.
 
 \subsection{Real-time data analysis}
 
