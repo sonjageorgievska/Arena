@@ -180,7 +180,18 @@ Formally,  (now write formulas)
 
 ***************begin from Sonja
 
-To address the last issue, {\it MAC address randomization}, we rely once again on the law of the large numbers. 
+To address the last issue, {\it MAC address randomization}, we rely once again on the fact that we have a lot of data. Namely, we know from the structure of the MAC address whether it is randomized or not. Figure \ref{fig:randomized} shows the ratio between randomized and non-randomized addresses observed per minute from midnight until 6:00 am. We can see that it is quite stable through time; in fact, the Pearson correlation coefficient between the time series of randomized and non-randomized addresses is 0.88. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=130mm]{RatioRandNonrand.jpeg}
+	\caption{Estimations of x-coordinates of a static MAC device as a function of time}
+	\label{fig:randomized}
+\end{figure} 
+
+Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by 1.0225, to account for the ignored MAC devices. We choose factor 1.0225 to allow for a safety margin: in the peaks of the graph in Fig. \ref{fig:randomized} the values are 0.025, and we would rather overestimate than underestimate the crowd density. 
+Note that this ratio should be re-computed periodically, to account for the changing conditions at the smart phones market.
+
 *******end from Sonja
 
 
