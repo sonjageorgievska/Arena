@@ -75,21 +75,21 @@ Sonja:Mention somewhere that in the documentary of the LP disaster people were r
 Under ideal circumstances, the positioning itself would suffice to estimate the crowd density per region of interest:  every few seconds we would only need to count the number of estimates that fall in the region of interest. However, we have observed several issues, which are not related to the mathematical methodology behind the positioning step, that prevent us to apply direct counting. 
 \begin{enumerate}
 	\item
-	{\it Multiple local optima}. Due to signal interference, when the optimization of the estimation of location of a certain MAC address is performed, there can be multiple local optima that are equally good candidates. For example, consider Fig. \ref{fig:trilateration_problem} \footnote{Picture courtesy of http://math.stackexchange.com/questions/42537/trilateration-with-bounds}. In the center of every ring there is a Wi-Fi router, that has estimated signal strength to a certain MAC device with a certain error range. The error range is represented by the thickness of the ring. Then, there are two possible regions which are equally good candidates for the positioning of the MAC device, and those regions are the two darkest regions where all three rings overlap. Note that the problem can arise regardless of the thickness of the rings or the number of Wi-Fi routers. 	
+	{\it Bimodal distributions of coordinates estimations}. We have sampled randomly 20 MAC addresses and plotted the estimations of their coordinates through time, where we have plotted only the estimations with a relatively small uncertainty. We observed persistent bimodal distribution of the estimations, an example of which can be seen in Fig. \ref{fig:bimodal}. 
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=100mm]{bimodal.jpg}
+			\caption{Trilateration can lead to multiple local optima (cut the lower part from the picture)}
+			\label{fig:bimodal}
+		\end{figure} 
+	This figure shows the estimated x-coordinates through time of a static, 24 hours persistent MAC address. Because we did not observe  bi-modal distributions in the signal strengths, the bi-modal distribution of the positions estimates can be explained by the multiple local optima situation. Namely, due to signal interference, when the optimization of the estimation of location of a certain MAC address is performed, there can be multiple local optima that are equally good candidates. For example, consider Fig. \ref{fig:trilateration_problem} \footnote{Picture courtesy of http://math.stackexchange.com/questions/42537/trilateration-with-bounds}. In the center of every ring there is a Wi-Fi router, that has estimated signal strength to a certain MAC device with a certain error range. The error range is represented by the thickness of the ring. Then, there are two possible regions which are equally good candidates for the positioning of the MAC device, and those regions are the two darkest regions where all three rings overlap. Note that the problem can arise regardless of the thickness of the rings or the number of Wi-Fi routers. 	
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=40mm]{trilateration_problem.jpg}
 		\caption{Trilateration can lead to multiple local optima}
 		\label{fig:trilateration_problem}
 	\end{figure}
-	In fact, let us consider a static (24 hours persistent) MAC device.  We have  plotted the estimations of its coordinates through time, where we have plotted only the estimations with a relatively small error  (Fig. \ref{fig:bimodal})
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=100mm]{bimodal.jpg}
-		\caption{Trilateration can lead to multiple local optima (cut the lower part from the picture)}
-		\label{fig:bimodal}
-	\end{figure} 
-	The resulting plot (for the x-coordinate) reveals a bimodal distribution of the estimation. We have observed such a distribution in a majority of the 20 randomly sampled MAC addresses. This phenomenon can be explained by the multiple local optima situation, because we did not observe bi-modal distributions in the signal strengths. (***** Sonja: better to first write the observation of bimodality and then the multiple local optima possible explanation***)
+	
 	
 \item {\it Volatility of packet rates}. When a MAC device is connected to the WI-Fi internet, it sends packets with a relatively stable rate. However, during concert hours, very few devices are actually connected to the internet, and most of our estimations of positions come from signals that the device sends in a "probing" mode. In this case the packet rate is quite volatile, ranging from a few seconds to a few minutes (some citation?). This means that when we make a snapshot of the MAC addresses visible in a certain moment, we are only detecting a small fraction of the MAC devices.   
 
@@ -105,20 +105,24 @@ In order to deal with issue 1 from above, let us start with the following observ
 This situation, dense crowd, means that there is more blockage of signals from bodies, less precise estimation of distance from Wi-Fi based on signal strength, which means that the rings in Fig.\ref{fig:trilateration_problem} would be even thicker. This exaggerates the effect of "bimodal" or even multi-modal distribution of position estimates. Thus, in a dense crowd, all we can derive from the positioning method for a MAC address is a probability distribution of its possible locations. For example, in the scenario in Fig. \ref{fig:trilateration_problem}, we can say that the MAC device is with a probability of 0.5 in the left grey region (region where all three rings overlap) and with a probability of 0.5 in the right grey region. While this does not provide us with useful information for the location of the MAC address, if we apply the same reasoning for all MAC addresses, and, for a region R we add together the probabilities for all MAC devices that they are in that region, we end up with an estimation of the number of MAC devices in that region. If we assume that the probability distributions of the locations of the MAC addresses are independent, we can directly apply the law of the large numbers and conclude that for a dense crowd the error of the estimation of the density per region will vanish. However, we cannot assume the mentioned independence, because people tend to go in groups to concerts. In this case, the variance of the estimation is equal to the average correlation between the distributions in the limiting case. Nevertheless, we can safely assume that for a regular crowd at a concert the average correlation tends to zero as the number of people increases; thus, the error of the estimation of the crowd density will in anyway vanish as the number of people tends to infinity. Formally, let R be an arbitrary region. (now I have to write some formulas, will continue on Monday)....
 
 
+
 ***************end from Sonja
 
 ***start from Philip
 
 \begin{comment}
-To visualise the spatiotemporal behaviour of crowd density in real-time we dynamically generate heat maps along a moving time interval. The heat maps are generated through the statistical modeling of the positioning data. The generation of dynamic heat maps allows us to detect and locate hot-spots of density where crowd conditions reach critical values that could possibly lead to a disaster.
-\end{comment}
 
-\begin{itemize}
-\item The method we use is similar to Kernel Density Estimation, but what we are doing is not actual smoothing (?).
-\end{itemize}
+
+To visualise the spatiotemporal behaviour of crowd density in real-time we dynamically generate heat maps along a moving time interval. The heat maps are generated through the statistical modeling of the positioning data. The generation of dynamic heat maps allows us to detect and locate hot-spots of density where crowd conditions reach critical values that could possibly lead to a disaster.
+
+
 
 To construct two-dimensional probability density functions we apply non-parametric density estimation.
 For each bin location $X$, in the time interval $t$, we apply the kernel density estimation (KDE) method \cite{scott}\cite{silverman} given by
+
+\end{comment}
+
+{\it below: emphasize that we measure in a time window. The final result of stacking is not a probability density distribution but a crowd density distribution. We don't generate probabilities for number of people per bin, but we generate an estimation of number of people per bin. }
 
 The data provides us with a series of estimated positions, together with corresponding values for the uncertainty (see Section on Positioning).
 From the estimated positions we wish to generate density histograms.
@@ -147,6 +151,7 @@ Because the distances are expressed in bin units we scale the sigma's  ($\sigma_
 \end{equation}
 This implies that the bin size becomes the unit for our density estimates, and we generate probabilities for number of people per bin, which has the area $h\times h$.
 
+\begin{comment}
 \subsection{Real-time data analysis}
 
 To process positioning data in real-time during events, we consider data within a specific moving time window.
@@ -157,17 +162,29 @@ To take in account that visitors are moving, we subdivide the time window in mul
 \end{equation}
 
 \noindent where $\hat{f}(X,t)$ is the non-normalized sum of smoothed counts ($N\times\hat{d}(X,t)$) in Equation \ref{kde}, $w_{k}$ is the weight value given to sub-window $k$, and $m$ is the number of sub-windows.
+\end{comment}
+
+****************begin from Sonja
+
+To address the second issue {\it Volatility of packet rates}, we ensure that we do not forget about the MAC addresses that were not observed in the last time window. In fact, for every MAC address that was ever observed, until it has been observed again we maintain the old probability distribution, too. Over time this probability distribution turns gradually into a uniform by smoothing it every epoch with a Gaussian kernel. The size of the kernel changes over time and is related to the maximal speed that the MAC address can have under the current density distribution of the crowd. In other words, we assume a Brownian motion of the MAC address, where the speed is limited by the maximal speed of a pedestrian under the current crowd conditions (cite paper Johansson et al). When the MAC address is observed again, its old probability distribution is simply overwritten by the probability distribution that is computed as above. 
+
+Formally,  (now write formulas) 
+
+****************end from Sonja
+
+***************begin from Sonja
+
+To address the last issue, {\it MAC address randomization}, we rely once again on the law of the large numbers. 
+*******end from Sonja
+
 
 \subsection{Validation}
 
-\begin{itemize}
-\item Simulation?\\
-Do we include simulation of the positioning process, i.e. the toy Monte Carlo simulation, or do we generate fitted positions with error values, and only test the density estimation methods?
-\end{itemize}
+
 
 \section{Related work}
 
-Wirz \textit{et al.} (2012) \cite{wirz:1} infer crowd density from GPS location traces of people who use an App during the 2011 Lord Mayor Show in London. They visualize the data in real-time, and generate heat maps (dynamically) using the kernel density estimation (KDE) method. In (Wirz \textit{et al.} 2013) \cite{wirz:2} the methodology is presented more elaborately, using a real-world data set collected during the same festival. The relation between the number of App users and the crowd density is calibrated (using linear regression), which forms the basis of their participatory sensing method. 
+Wirz \textit{et al.} (2012) \cite{wirz:1} infer crowd density from GPS location traces of people who use an App during the 2011 Lord Mayor Show in London. They visualize the data in real-time, and generate heat maps (dynamically) using the kernel density estimation (KDE) method. In (Wirz \textit{et al.} 2013) \cite{wirz:2} the methodology is presented more elaborately, using a real-world data set collected during the same festival. The relation between the number of App users and the crowd density is calibrated (using linear regression), which forms the basis of their participatory sensing method. **********from Sonja: but the main idea/proposition in this paper is that they are reverting the formula for speed as a function of density of Johansson, to infer the density when they know the speed (??)******end from sonja*****
 The accuracy of the smoothing method is assessed using ground truth crowd density information obtained from video footage recorded by CCTV cameras. 
 The influence of the kernel radius on the correlation between the actual density and the density of App is analysed.
 
