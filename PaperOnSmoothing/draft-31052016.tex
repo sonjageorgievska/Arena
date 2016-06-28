@@ -174,7 +174,7 @@ To take in account that visitors are moving, we subdivide the time window in mul
 
 To address the second issue {\it Volatility of packet rates}, we ensure that we do not forget about the MAC addresses that were not observed in the last time window. In fact, for every MAC address that was ever observed, until it has been observed again we maintain the old probability distribution, too. Over time this probability distribution turns gradually into a uniform by smoothing it every epoch with a Gaussian kernel. The size of the kernel changes over time and is related to the maximal speed that the MAC address can have under the current density distribution of the crowd. In other words, we assume a Brownian motion of the MAC address, where the speed is limited by the maximal speed of a pedestrian under the current crowd conditions (cite paper Johansson et al). When the MAC address is observed again, its old probability distribution is simply overwritten by the probability distribution that is computed as above. 
 
-Formally,  (now write formulas) 
+Formally,  (to Philip: now write formulas, please ) 
 
 ****************end from Sonja
 
