@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.21)  28 JUN 2016 13:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.21)  28 JUN 2016 14:49
 entering extended mode
 **./draft-31052016.tex
 (draft-31052016.tex
@@ -533,35 +533,31 @@ LaTeX Warning: No \author given.
 [1
 
 {C:/Users/sonja/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<bimodal.jpg, id=10, 595.023pt x 205.36725pt>
+<bimodal.jpg, id=10, 2409.0pt x 1176.395pt>
 File: bimodal.jpg Graphic file (type jpg)
  <use bimodal.jpg>
-Package pdftex.def Info: bimodal.jpg used on input line 81.
-(pdftex.def)             Requested size: 284.52756pt x 98.20538pt.
+Package pdftex.def Info: bimodal.jpg used on input line 79.
+(pdftex.def)             Requested size: 341.43306pt x 166.72256pt.
 
 <trilateration_problem.jpg, id=11, 95.75775pt x 83.71275pt>
 File: trilateration_problem.jpg Graphic file (type jpg)
 
 <use trilateration_problem.jpg>
-Package pdftex.def Info: trilateration_problem.jpg used on input line 88.
+Package pdftex.def Info: trilateration_problem.jpg used on input line 86.
 (pdftex.def)             Requested size: 113.81102pt x 99.50188pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2 <./bimodal.jpg>] [3 <./trilateration_problem.jpg>]
-<RatioRandNonrand.jpeg, id=22, 2409.0pt x 1176.395pt>
+ [2 <./bimodal.jpg> <./trilateration_problem.jpg>] [3] <RatioRandNonrand.jpeg, 
+id=24, 2409.0pt x 1176.395pt>
 File: RatioRandNonrand.jpeg Graphic file (type jpg)
 
 <use RatioRandNonrand.jpeg>
-Package pdftex.def Info: RatioRandNonrand.jpeg used on input line 187.
+Package pdftex.def Info: RatioRandNonrand.jpeg used on input line 185.
 (pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 208--209
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
 
  []
 
@@ -569,7 +565,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 208--209
 Here is how much of TeX's memory you used:
  2769 strings out of 493335
  35360 string characters out of 3136680
- 100335 words of memory out of 3000000
+ 99335 words of memory out of 3000000
  6242 multiletter control sequences out of 15000+200000
  12148 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -588,7 +584,7 @@ TeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX
 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on draft-31052016.pdf (6 pages, 586660 bytes).
+Output written on draft-31052016.pdf (6 pages, 1126453 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
