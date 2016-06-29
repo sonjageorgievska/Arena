@@ -124,51 +124,45 @@ Now about the variance.................
 ***start from Philip
 
 \begin{comment}
-
-
 To visualise the spatiotemporal behaviour of crowd density in real-time we dynamically generate heat maps along a moving time interval. The heat maps are generated through the statistical modeling of the positioning data. The generation of dynamic heat maps allows us to detect and locate hot-spots of density where crowd conditions reach critical values that could possibly lead to a disaster.
-
-
-
-To construct two-dimensional probability density functions we apply non-parametric density estimation.
-For each bin location $X$, in the time interval $t$, we apply the kernel density estimation (KDE) method \cite{scott}\cite{silverman} given by
-
 \end{comment}
 
-{\it below: emphasize that we measure in a time window. The final result of stacking is not a probability density distribution but a crowd density distribution. We don't generate probabilities for number of people per bin, but we generate an estimation of number of people per bin. }
+{\it below: emphasize that we measure in a time window. The final result of stacking is not a probability density distribution but a crowd density distribution. We don't generate probabilities for number of people per bin, but we generate an estimation of number of people per bin. }\\
 
-To visualise the spatiotemporal behaviour of crowd density [in real-time] we dynamically generate heat maps along a moving time interval. 
-The data provides us with a series of estimated positions of mobile devices, together with corresponding values of measurement uncertainty (see Section on Positioning).
-[The uncertainty values are determined by the co-variance matrix resulting from the chi-square fitting method.]
+The data provides us with a series of estimated positions of mobile devices, together with their corresponding values of measurement uncertainty (see Section on Positioning).
+\begin{comment}
+The uncertainty values are determined by the co-variance matrix resulting from the chi-square fitting method.
+\end{comment}
+From this data we wish to estimate crowd density distributions, along a moving time window.
+So, our first step is to select from the data estimated positions whose time stamps fall within a specified time interval $[t-\Delta t,t]$.
+From the selected estimated positions we then construct density estimates for the individual mobile devices, and add them up to construct the crowd density distribution.
 
-From the data we select positions that are estimated from measurements that fall within a time window.
-From the estimated positions we construct crowd density estimations for the number of mobile devices per unit area.
-To visualize the uncertainty that corresponds to each estimated position, we transform it into a bi-variate Gaussian, using the uncertainty values ($\sigma_{x}$ and $\sigma_{y}$).
-For each MAC address detected we construct a two-dimensional density estimate that is the sum of these smoothed positions, which we normalize by the number of measurements $N$ for that MAC address.
-Thus, the final density estimate for a mobile device is a sum of `bumps' centered at the estimated positions.
-Because the number of measurements is different for each detected mobile device, we normalize each histogram separately.
-To build our final probability density estimate we sum all the density distributions of all the MAC addresses.
-This final density estimate integrates to the number of MAC addresses detected in the time window.
+A natural way to construct density estimates for the individual devices would be to construct density histograms, by binning the estimated positions.
+However, in constructing the density estimates we wish to preserve and visualize the uncertainty that corresponds to each estimated position.
+Therefore, we smooth each position into a bivariate Gaussian `bump', using the uncertainty values ($\sigma_{x}$ and $\sigma_{y}$) provided by the data.
+For each detected MAC address we construct a two-dimensional density estimate by adding up these smoothed positions, which we normalize by the number of measurements $N$ we have for that MAC address in the selected time window.
+Thus, the density estimate for a mobile device is the sum of a series of Gaussian `bumps' with variable width, centered at the estimated positions.
 
-The implementation of our method is similar to kernel density estimation \cite{scott}\cite{silverman}.
+Finally, to construct our crowd density estimation we sum the individual density estimates of all the devices.
+This estimated crowd density distribution integrates to the number of MAC addresses detected in the time window.
+
+The implementation of our method is similar to that of kernel density estimation \cite{scott}\cite{silverman}.
 In our case the amount of smoothing is variable and determined by the measurement uncertainty values $\sigma_{x}$ and $\sigma_{y}$.
-
 The density estimate for a mobile device $m$ at a location $(x,y)$ is defined by
 
 \begin{equation}
 \hat{f}_{m}(x,y)=\frac{1}{N}\sum_{i=1}^{N}K((x-x_{i}),\sigma_{x}) K((y-y_{i}),\sigma_{y})
 \label{kde}
 \end{equation}
-where $N$ is the number of measurements (positions) for MAC address $m$, and the kernel function $K$ is give by
+where $N$ is the number of measurements (positions) for MAC address $m$, and the kernel function $K$ is given by
 \begin{equation}
 K(u,\sigma)=\frac{1}{\sigma\sqrt{2\pi}}\exp(\frac{u^2}{2\sigma^2})
 \end{equation}
-The final density estimate is given by
+The final crowd density estimation is given by
 \begin{equation}
 \hat{f}_{T}(x,y)=\sum_{m}\hat{f}_{m}(x,y)
 \label{total}
 \end{equation}
-To visualize our results as a density histogram in which the estimated values are probabilities for the number of people per bin, we evaluate equation \ref{total} at regular points in a grid, and multiply by the bin size.
 
 \begin{comment}
 \subsection{Real-time data analysis}
@@ -187,9 +181,25 @@ To take in account that visitors are moving, we subdivide the time window in mul
 
 To address the second issue {\it Volatility of packet rates}, we ensure that we do not forget about the MAC devices that were not observed in the last time window. In fact, for every MAC device that was ever observed, until it has been observed again we maintain the old probability distribution, too. Over time this probability distribution turns gradually into a uniform by smoothing it every epoch with a Gaussian kernel. The size of the kernel changes over time and is related to the maximal speed that the MAC device can have under the current density distribution of the crowd. In other words, we assume a Brownian motion of the MAC device, where the speed is limited by the maximal speed of a pedestrian under the current crowd conditions (cite paper Johansson et al). When the MAC device is observed again, its old probability distribution is simply overwritten by the probability distribution that is computed as above. 
 
-Formally,  (to Philip: now write formulas, please ) 
+Formally,  (now write formulas) 
 
-****************end from Sonja
+****************end from Sonja\\
+
+\begin{comment}
+below is a first sketch, nothing definite yet
+\end{comment}
+
+For the epochs during which a mobile device is not detected we assume Brownian motion (without drift), which is defined by
+
+\begin{equation}
+\text{d}X(t)=\sqrt{2D}\text{d}W(t)
+\end{equation}
+where $W(t)$ is a Wiener process. The density function $f(t,x)$ of the displacement of $X$ in the time interval $[0,t]$ is known, and is a normal distribution with mean $X(0)$ and variance
+\begin{equation}
+\sigma^2=2Dt
+\end{equation}
+Thus, in case have no new observations, we can further smooth the density estimate from the previous epoch by convolution with a normal distribution. 
+The variance is determined by the length $t$ of the time interval, and the (average) walking speed of pedestrians. The walking speed in turn can be related to the local crowd density via the so-called fundamental diagram.\\
 
 ***************begin from Sonja
 
