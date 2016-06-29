@@ -97,12 +97,14 @@ Under ideal circumstances, the positioning itself would suffice to estimate the 
 
 \subsection{Addressing the issues: real-time crowd density estimation}
 
+\subsubsection{Issue 1: creating a statistical ensemble}
 *************from Sonja
 
 In order to deal with issue 1 from above, let us start with the following observation: we are not interested in the individual locations of the MAC devices, but rather in the density of the crowd; we would like especially to have more precise estimation when the density reaches a certain threshold, so that the crowd that is not in the dense region can be alarmed promptly to move away from the dense region. So, we are interested in estimating density accurately when the crowd is not in a state of movement (because if people are able to freely move, they are not in a danger). 
 This situation, dense crowd, means that there is more blockage of signals from bodies, less precise estimation of distance from Wi-Fi based on signal strength, which means that the rings in Fig.\ref{fig:trilateration_problem} would be even thicker. This exaggerates the effect of "bimodal" or even multi-modal distribution of position estimates. Thus, in a dense crowd, all we can derive from the positioning method for a MAC address is a probability distribution of its possible locations. For example, in the scenario in Fig. \ref{fig:trilateration_problem}, we can say that the MAC device is with a probability of 0.5 in the left grey region (region where all three rings overlap) and with a probability of 0.5 in the right grey region. While this does not provide us with useful information for the location of the MAC address, if we apply the same reasoning for all MAC addresses, and, for a region R we add together the probabilities for all MAC devices that they are in that region, we end up with an estimation of the number of MAC devices in that region. If we assume that the probability distributions of the locations of the MAC addresses are independent, we can directly apply the law of the large numbers and conclude that for a dense crowd the error of the estimation of the density per region will vanish. However, we cannot assume the mentioned independence, because people tend to go in groups to concerts. In this case, the variance of the estimation is equal to the average correlation between the distributions in the limiting case. Nevertheless, we can safely assume that for a regular crowd at a concert the average correlation tends to zero as the number of people increases; thus, the error of the estimation of the crowd density will in anyway vanish as the number of people tends to infinity. 
 
-Formally, let $R$ be an arbitrary region from the stadium. Let $\{mac_1, mac_2,...mac_n\}$ be all MAC devices detected at time $t$.  Let $X_i$ be a random variable defined by
+Formally, 
+let $\{mac_1, mac_2,...mac_n\}$ be all MAC devices detected at time $t$. Let $R$ be an arbitrary region from the stadium.  Let $X_i$ be a random variable defined by
 
 $$X_i = 
 \left\{
@@ -119,6 +121,8 @@ where by $ Prob(mac_i \in R) $ we denote the probability that $mac_i$ is in the 
 
 Now about the variance.................
 
+
+**** below: in the kernel function there is a typo:  the negative sign in front of $u^2$ is forgotten
 ***************end from Sonja
 
 ***start from Philip
@@ -126,8 +130,6 @@ Now about the variance.................
 \begin{comment}
 To visualise the spatiotemporal behaviour of crowd density in real-time we dynamically generate heat maps along a moving time interval. The heat maps are generated through the statistical modeling of the positioning data. The generation of dynamic heat maps allows us to detect and locate hot-spots of density where crowd conditions reach critical values that could possibly lead to a disaster.
 \end{comment}
-
-{\it below: emphasize that we measure in a time window. The final result of stacking is not a probability density distribution but a crowd density distribution. We don't generate probabilities for number of people per bin, but we generate an estimation of number of people per bin. }\\
 
 The data provides us with a series of estimated positions of mobile devices, together with their corresponding values of measurement uncertainty (see Section on Positioning).
 \begin{comment}
@@ -177,6 +179,7 @@ To take in account that visitors are moving, we subdivide the time window in mul
 \noindent where $\hat{f}(X,t)$ is the non-normalized sum of smoothed counts ($N\times\hat{d}(X,t)$) in Equation \ref{kde}, $w_{k}$ is the weight value given to sub-window $k$, and $m$ is the number of sub-windows.
 \end{comment}
 
+\subsubsection{Issue 2: Conservation of mass }
 ****************begin from Sonja
 
 To address the second issue {\it Volatility of packet rates}, we ensure that we do not forget about the MAC devices that were not observed in the last time window. In fact, for every MAC device that was ever observed, until it has been observed again we maintain the old probability distribution, too. Over time this probability distribution turns gradually into a uniform by smoothing it every epoch with a Gaussian kernel. The size of the kernel changes over time and is related to the maximal speed that the MAC device can have under the current density distribution of the crowd. In other words, we assume a Brownian motion of the MAC device, where the speed is limited by the maximal speed of a pedestrian under the current crowd conditions (cite paper Johansson et al). When the MAC device is observed again, its old probability distribution is simply overwritten by the probability distribution that is computed as above. 
@@ -201,6 +204,8 @@ where $W(t)$ is a Wiener process. The density function $f(t,x)$ of the displacem
 Thus, in case have no new observations, we can further smooth the density estimate from the previous epoch by convolution with a normal distribution. 
 The variance is determined by the length $t$ of the time interval, and the (average) walking speed of pedestrians. The walking speed in turn can be related to the local crowd density via the so-called fundamental diagram.\\
 
+\subsubsection{Issue 3: using Big data again}
+
 ***************begin from Sonja
 
 To address the last issue, {\it MAC address randomization}, we rely once again on the fact that we have a lot of data. Namely, we know from the structure of the MAC address whether it is randomized or not. Figure \ref{fig:randomized} shows the ratio between randomized and non-randomized addresses observed per minute from midnight until 6:00 am. We can see that it is quite stable through time; in fact, the Pearson correlation coefficient between the time series of randomized and non-randomized addresses is 0.88. 
@@ -212,14 +217,14 @@ To address the last issue, {\it MAC address randomization}, we rely once again o
 	\label{fig:randomized}
 \end{figure} 
 
-Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by 1.0225, to account for the ignored MAC devices. We choose factor 1.225 to allow for a safety margin: in the peaks of the graph in Fig. \ref{fig:randomized} the values are 0.225, and we would rather overestimate than underestimate the crowd density. 
+Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by 1.225, to account for the ignored MAC devices. We choose factor 1.225 to allow for a safety margin: in the peaks of the graph in Fig. \ref{fig:randomized} the values are 0.225, and we would rather overestimate than underestimate the crowd density. 
 Note that this ratio should be re-computed periodically, to account for the changing conditions at the smart phones market.
 
 *******end from Sonja
 
 
 \subsection{Validation}
-
+Maybe with crowd sourcing images and videos from Sensation 2015 Amsterdam White
 
 
 \section{Related work}
