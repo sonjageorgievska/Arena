@@ -91,7 +91,7 @@ Under ideal circumstances, the positioning itself would suffice to estimate the 
 	
 \item {\it Volatility of packet rates}. When a MAC device is connected to the WI-Fi internet, it sends packets with a relatively stable rate. However, during concert hours, very few devices are actually connected to the internet, and most of our estimations of positions come from signals that the device sends in a "probing" mode. In this case the packet rate is quite volatile, ranging from a few seconds to a few minutes (some citation?). This means that when we make a snapshot of the MAC addresses visible in a certain moment, we are only detecting a small fraction of the MAC devices.   
 
-\item {\it MAC randomization}. Due to ever increasing privacy concerns and possibly other business reasons, starting from 2014, the Apple I-phones have introduced randomization of the MAC address when the device is in a probing mode (not connected to internet) (citation?). This means that when the device switches from a probing to an online mode or vice versa, the MAC address suddenly changes and thus the device cannot be followed anymore. (n.b. here or later: there is a tag that reveals whether the address is randomized or not)    
+\item {\it MAC randomization}. Due to ever increasing privacy concerns and possibly other business reasons, starting from 2014, the Apple I-phones have introduced randomization of the MAC address when the device is in a probing mode (not connected to internet) (citation?). This means that when the device switches from a probing to an online mode or vice versa, the MAC address suddenly changes and thus the device cannot be followed anymore. It is worth noting, however, that the MAC address comes with a tag that reveals whether the address belongs to a certain domain (is non-randomized) or is randomized.    
 \end{enumerate}
 
 
@@ -100,8 +100,8 @@ Under ideal circumstances, the positioning itself would suffice to estimate the 
 \subsubsection{Issue 1: creating a statistical ensemble}
 *************from Sonja
 
-In order to deal with issue 1 from above, let us start with the following observation: we are not interested in the individual locations of the MAC devices, but rather in the density of the crowd; we would like especially to have more precise estimation when the density reaches a certain threshold, so that the crowd that is not in the dense region can be alarmed promptly to move away from the dense region. So, we are interested in estimating density accurately when the crowd is not in a state of movement (because if people are able to freely move, they are not in a danger). 
-This situation, dense crowd, means that there is more blockage of signals from bodies, less precise estimation of distance from Wi-Fi based on signal strength, which means that the rings in Fig.\ref{fig:trilateration_problem} would be even thicker. This exaggerates the effect of "bimodal" or even multi-modal distribution of position estimates. Thus, in a dense crowd, all we can derive from the positioning method for a MAC address is a probability distribution of its possible locations. For example, in the scenario in Fig. \ref{fig:trilateration_problem}, we can say that the MAC device is with a probability of 0.5 in the left grey region (region where all three rings overlap) and with a probability of 0.5 in the right grey region. While this does not provide us with useful information for the location of the MAC address, if we apply the same reasoning for all MAC addresses, and, for a region R we add together the probabilities for all MAC devices that they are in that region, we end up with an estimation of the number of MAC devices in that region. If we assume that the probability distributions of the locations of the MAC addresses are independent, we can directly apply the law of the large numbers and conclude that for a dense crowd the error of the estimation of the density per region will vanish. However, we cannot assume the mentioned independence, because people tend to go in groups to concerts. In this case, the variance of the estimation is equal to the average correlation between the distributions in the limiting case. Nevertheless, we can safely assume that for a regular crowd at a concert the average correlation tends to zero as the number of people increases; thus, the error of the estimation of the crowd density will in anyway vanish as the number of people tends to infinity. 
+In order to deal with issue 1 from above, let us start with the following observation: we are not interested in the individual locations of the MAC devices, but rather in the density of the crowd; we would like especially to have more precise estimation when the density reaches a certain threshold, so that the crowd that is not in the dense region can be alarmed promptly to move away from the dense region.
+This situation, dense crowd, means that there is more blockage of signals from bodies, less precise estimation of distance from Wi-Fi based on signal strength, which means that the rings in Fig.\ref{fig:trilateration_problem} would be even thicker. This exaggerates the effect of "bimodal" or even multi-modal distribution of position estimates. Thus, in a dense crowd, all we can derive from the positioning method for a MAC device is a probability distribution of its possible locations. For example, in the scenario in Fig. \ref{fig:trilateration_problem}, we can say that the MAC device is with a probability of 0.5 in the left grey region (region where all three rings overlap) and with a probability of 0.5 in the right grey region. While this does not provide us with useful information for the location of the MAC device, if we apply the same reasoning for all MAC devices, and, for a region R we add together the probabilities for all MAC devices that they are in that region, we end up with an estimation of the number of MAC devices in that region. If we assume that the locations of the MAC devices are mutually independent, we can  apply directly the law of the large numbers and conclude that for a dense crowd the error of the estimation of the density per region will vanish. However, we cannot assume the mentioned independence, because people tend to go in groups to concerts. In this case, the variance of the estimation is equal to the average correlation between the locations in the limiting case. Nevertheless, we can safely assume that for a regular crowd at a concert the average correlation tends to zero as the number of people increases; thus, the error of the estimation of the crowd density will in anyway diminish as the number of people tends to infinity. 
 
 Formally, 
 let $\{mac_1, mac_2,...mac_n\}$ be all MAC devices detected at time $t$. Let $R$ be an arbitrary region from the stadium.  Let $X_i$ be a random variable defined by
@@ -117,11 +117,32 @@ $$X_i =
  Denote by $X$ the total number of devices in $R$ detected at time $t$. Clearly, $X=\sum_{i=1}^{n} X_i$.
 Then $E(X)$, the expected value of $X$ is $$ E(X) = E(\sum_{i=1}^{n} X_i) = \sum_{i=1}^{n}E( X_i) = 
 \sum_{i=1}^{n}(1\cdot Prob(mac_i \in R) + 0 \cdot Prob(mac_i \notin R)) = \sum_{i=1}^{n} Prob(mac_i \in R) ,$$
-where by $ Prob(mac_i \in R) $ we denote the probability that $mac_i$ is in the region R at time $t$.
+where by $Prob(mac_i \in R)$ we denote the probability that $mac_i$ is in the region R at time $t$.
+We postpone the derivation of $Prob(mac_i \in R)$ a bit. 
 
-Now about the variance.................
+Next, we show that the variance of $X/n$, that is, the number of devices in $R$ normalized w.r.t the total number of detected devices, diminishes when $n$ becomes large (the variance of $X$ in the limiting case is out of our interest because then $E(X)$ is potentially infinite). This suffices to show that our method of estimation of crowd density is theoretically sound, given the probabilities $Prob(mac_i \in R)$. We have
+
+\begin{equation}\label{eq_Var}
+Var(\frac{X}{n} ) =  Var(\frac{1}{n} \cdot \sum_{i=1}^{n} X_i) = \frac{1}{n^2} \cdot Var(\sum_{i=1}^{n} X_i) = \frac{1}{n^2} \cdot (\sum_{i=1}^{n} Var(X_i) + \sum_{i \not =  j}Cov(X_i,X_j))
+\end{equation}
 
 
+We can assume that there is an upper limit $\lambda$ of a number of people that go to a concert together (a group), that is, whose locations are correlated\footnote{Actually, when the crowd is so dense that people can not move freely anymore, the whole crowd becomes a "group" (cite LP disaster) and all locations are correlated. But we aim to detect a high density with our method {\it before} this happens, to react preventively; otherwise, it is too late.}. Denote by $\kappa$ the maximal covariance between any $X_i$ and $X_j$ and let us write $i \sim j$ if and only if $i$ and $j$ are in the same group. 
+Then, 
+\begin{equation}\label{eq_covar}
+\sum_{i \not =  j}Cov(X_i,X_j) = 2 \sum_{1\leq i <  j \leq n }Cov(X_i,X_j) =  2 \sum_{i,j: i \sim j }Cov(X_i,X_j)  \leq 2 n \cdot \frac{\lambda(\lambda - 1)}{2} \cdot\kappa = n  k \lambda(\lambda - 1)
+\end{equation} 
+where the inequality holds because the maximal number of groups is $n$ and the maximal number of pairs $(i,j)$ in a group is $\lambda(\lambda-1)/2$.
+Let $\mu = \frac{1}{n}\sum_{i=1}^{n} Var(X_i)$, that is, 
+denote by $\mu$ the average variance of $X_i$.  From \eqref{eq_Var} and \eqref{eq_covar} we have  
+
+\begin{equation}
+Var(\frac{X}{n} ) \leq \frac{1}{n^2}(n \mu + n  k \lambda(\lambda - 1)) = \frac{1}{n}(\mu +  k \lambda(\lambda - 1)), 
+\end{equation}
+which tends to $0$ when $n \rightarrow \infty$. Note that we have greatly overestimated the variance with the inequation in \eqref{eq_covar}. 
+
+Next, we can proceed with derivation of $Prob(mac_i) \in R$ for arbitrary $i$ in order to evaluate $E(X)$. 
+   
 **** below: in the kernel function there is a typo:  the negative sign in front of $u^2$ is forgotten
 ***************end from Sonja
 
@@ -218,7 +239,7 @@ To address the last issue, {\it MAC address randomization}, we rely once again o
 \end{figure} 
 
 Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by 1.225, to account for the ignored MAC devices. We choose factor 1.225 to allow for a safety margin: in the peaks of the graph in Fig. \ref{fig:randomized} the values are 0.225, and we would rather overestimate than underestimate the crowd density. 
-Note that this ratio should be re-computed periodically, to account for the changing conditions at the smart phones market.
+Note that this ratio should be re-computed periodically, to account for the changing conditions at the smart phones market. 
 ********mention the absolute numbers, or give graphs)
 *******end from Sonja
 
@@ -238,7 +259,7 @@ The Gaussian weight function used in (Wirz \textit{et al.} 2012; 2013) \cite{wir
 A number of studies use Bluetooth to estimate crowd densities at a wide range of places and events.
 In these studies the position of a mobile phone is approximated to the location of the sensor by which it is detected.
 
-Schauer \textit{et al.} (2014) \cite{schauer:1} count unique MAC addresses detected by two sensors (nodes) at both sides (public and security) of a security check inside a major German airport, to estimate pedestrian densities and pedestrian flow. They consider time information, to determine the direction of a person's movement, and at least one RSSI value, to reduce the number of false positives in case devices are captured by both sensors. They compare Bluetooth and Wi-Fi based methods, and compare their methods to a known ground truth provided by the number of security checks.
+Schauer \textit{et al.} (2014) \cite{schauer:1} count unique MAC devices detected by two sensors (nodes) at both sides (public and security) of a security check inside a major German airport, to estimate pedestrian densities and pedestrian flow. They consider time information, to determine the direction of a person's movement, and at least one RSSI value, to reduce the number of false positives in case devices are captured by both sensors. They compare Bluetooth and Wi-Fi based methods, and compare their methods to a known ground truth provided by the number of security checks.
 
 Versichele \textit{et al.} (2012) \cite{versichele:1} use Bluetooth scanners at strategic locations during the 10-day Ghent Festivities, to analyze spatio-temporal dynamics of pedestrians. 
 
