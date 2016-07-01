@@ -130,14 +130,14 @@ Var(\frac{X}{n} ) =  Var(\frac{1}{n} \cdot \sum_{i=1}^{n} X_i) = \frac{1}{n^2} \
 We can assume that there is an upper limit $\lambda$ of a number of people that go to a concert together (a group), that is, whose locations are correlated\footnote{Actually, when the crowd is so dense that people can not move freely anymore, the whole crowd becomes a "group" (cite LP disaster) and all locations are correlated. But we aim to detect a high density with our method {\it before} this happens, to react preventively; otherwise, it is too late.}. Denote by $\kappa$ the maximal covariance between any $X_i$ and $X_j$ and let us write $i \sim j$ if and only if $i$ and $j$ are in the same group. 
 Then, 
 \begin{equation}\label{eq_covar}
-\sum_{i \not =  j}Cov(X_i,X_j) = 2 \sum_{1\leq i <  j \leq n }Cov(X_i,X_j) =  2 \sum_{i,j: i \sim j }Cov(X_i,X_j)  \leq 2 n \cdot \frac{\lambda(\lambda - 1)}{2} \cdot\kappa = n  k \lambda(\lambda - 1)
+\sum_{i \not =  j}Cov(X_i,X_j) = 2 \sum_{1\leq i <  j \leq n }Cov(X_i,X_j) =  2 \sum_{i,j: i \sim j }Cov(X_i,X_j)  \leq 2 n \cdot \frac{\lambda(\lambda - 1)}{2} \cdot\kappa = n  \kappa \lambda(\lambda - 1)
 \end{equation} 
 where the inequality holds because the maximal number of groups is $n$ and the maximal number of pairs $(i,j)$ in a group is $\lambda(\lambda-1)/2$.
 Let $\mu = \frac{1}{n}\sum_{i=1}^{n} Var(X_i)$, that is, 
 denote by $\mu$ the average variance of $X_i$.  From \eqref{eq_Var} and \eqref{eq_covar} we have  
 
 \begin{equation}
-Var(\frac{X}{n} ) \leq \frac{1}{n^2}(n \mu + n  k \lambda(\lambda - 1)) = \frac{1}{n}(\mu +  k \lambda(\lambda - 1)), 
+Var(\frac{X}{n} ) \leq \frac{1}{n^2}(n \mu + n  \kappa \lambda(\lambda - 1)) = \frac{1}{n}(\mu +  \kappa \lambda(\lambda - 1)), 
 \end{equation}
 which tends to $0$ when $n \rightarrow \infty$. Note that we have greatly overestimated the variance with the inequation in \eqref{eq_covar}. 
 
