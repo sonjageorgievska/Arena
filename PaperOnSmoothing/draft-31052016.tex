@@ -216,14 +216,25 @@ below is a first sketch, nothing definite yet
 For the epochs during which a mobile device is not detected we assume Brownian motion (without drift), which is defined by
 
 \begin{equation}
-\text{d}X(t)=\sqrt{2D}\text{d}W(t)
+\text{d}X(t)=\sigma\text{d}W(t)
 \end{equation}
 where $W(t)$ is a Wiener process. The density function $f(t,x)$ of the displacement of $X$ in the time interval $[0,t]$ is known, and is a normal distribution with mean $X(0)$ and variance
 \begin{equation}
-\sigma^2=2Dt
+\text{Var(\textit{X(t)})}=\sigma^{2}t
 \end{equation}
-Thus, in case have no new observations, we can further smooth the density estimate from the previous epoch by convolution with a normal distribution. 
-The variance is determined by the length $t$ of the time interval, and the (average) walking speed of pedestrians. The walking speed in turn can be related to the local crowd density via the so-called fundamental diagram.\\
+Thus, in case we have no new observations, we smooth the density estimate from the previous epoch by convolution with the normal density function. 
+The variance is determined by the length $t$ of the time interval, and the walking speed of pedestrians. 
+[Optional: We relate $\sigma$ to the walking speed of pedestrians by setting $\sigma^2=2Dt$, where ]
+\begin{equation}
+D=\frac{(\Delta X)^2}{2\Delta t}
+\end{equation}
+The walking speed can be related to the local crowd density via the so-called \textit{Fundamental Diagram}. 
+When the density increases the movement of pedestrians becomes more impeded.
+The fundamental diagram has been the subject of extensive study [examples].
+Here we use the fundamental diagram as provided by ... [?]
+
+Smoothing a two-dimensional (input) function by convolution with a Gaussian weight function that adapts its width to the local values of the input function is [complicated and] time-consuming.\\
+
 
 \subsubsection{Issue 3: using Big data again}
 
