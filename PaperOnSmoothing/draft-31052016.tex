@@ -223,17 +223,17 @@ where $W(t)$ is a Wiener process. The density function $f(t,x)$ of the displacem
 \text{Var(\textit{X(t)})}=\sigma^{2}t
 \end{equation}
 Thus, in case we have no new observations, we smooth the density estimate from the previous epoch by convolution with the normal density function. 
-The variance is determined by the length $t$ of the time interval, and the walking speed of pedestrians. 
-[Optional: We relate $\sigma$ to the walking speed of pedestrians by setting $\sigma^2=2Dt$, where ]
+The variance is determined by the length $t$ of the time interval, and the walking speed of pedestrians.
+[Optional: We relate $\sigma^2$ to the walking speed of pedestrians as defined by]
 \begin{equation}
-D=\frac{(\Delta X)^2}{2\Delta t}
+\sigma^2=\frac{(\Delta X)^2}{\Delta t}
 \end{equation}
-The walking speed can be related to the local crowd density via the so-called \textit{Fundamental Diagram}. 
-When the density increases the movement of pedestrians becomes more impeded.
-The fundamental diagram has been the subject of extensive study [examples].
-Here we use the fundamental diagram as provided by ... [?]
+The walking speed of pedestrians can be related to the local crowd density via the so-called \textit{Fundamental Diagram}. 
+The fundamental diagram generally states that walking speed of pedestrians is a decreasing function of the local crowd density [(Weidman 1992)].
+The fundamental diagram function has been the subject of extensive study [examples].
+Although all these studies agree on the decreasing form of the function, empirical studies in different countries and cultures have resulted in different forms and parameters values.
 
-Smoothing a two-dimensional (input) function by convolution with a Gaussian weight function that adapts its width to the local values of the input function is [complicated and] time-consuming.\\
+Here we use the fundamental diagram as provided by ... [?]
 
 
 \subsubsection{Issue 3: using Big data again}
