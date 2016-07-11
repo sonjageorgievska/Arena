@@ -25,11 +25,11 @@ Here we present initial results on the data analytics and show how we can extrac
 
 ***********************************From Sonja. nb: the text will be polished in the final phases, first I care only about putting all ideas on paper***************
 
-Crowd disasters have taken many human lives. The Love Parade disaster (Duisburg, 2010), the Ellis Park Stadium disaster (Johannesburg, 2001), the PhilSports Stadium stampede (Manila, 2006) are just a few recent examples. One of the reasons that disasters happen is a "lack of overview of everybody" [cite paper on love parade EPJ DS], that is, a lack of macroscopic overview of the crowd. Critical crowd density (cite paper 8/m2, find it in e-mails)) is a contributing factor to crowd disasters; yet, it is still challenging to determine timely when it occurs, so that a disaster can be prevented before it happens, by e.g. navigating the rest of the crowd away from the congestion. 
+Crowd disasters have taken many human lives. The Love Parade disaster (Duisburg, 2010), the Ellis Park Stadium disaster (Johannesburg, 2001), the PhilSports Stadium stampede (Manila, 2006) are just a few recent examples. One of the reasons that disasters happen is a "lack of overview of everybody" \cite{Helbing2012}, that is, a lack of macroscopic overview of the crowd. Critical crowd density  \cite{Helbing2012, density} is a contributing factor to crowd disasters; yet, it is still challenging to determine timely when it occurs, so that a disaster can be prevented before it happens, by e.g. navigating the rest of the crowd away from the congestion. 
 
-In our work we are interested in estimating crowd density during concerts in indoor spaces. A lot of research on estimating crowd density has been done using video processing from security cameras (cite papers (1), (2), (3) from proposal?). However, this approach does not suffice in our case, because 1)  it is difficult to obtain macroscopic overview ; 2) the lighting conditions during concert hours might not be sufficient for video-based crowd analysis; and 3) the error of video-based density estimation increases with the increase of the actual crowd density.  
+In our work we are interested in estimating crowd density during concerts in indoor spaces. A lot of research on estimating crowd density has been done using video processing from security cameras (\cite{Crowded_Scene_Analysis, Krausz2012307}). However, this approach does not suffice in our case, because 1)  it is difficult to obtain macroscopic overview ; 2) the lighting conditions during concert hours might not be sufficient for video-based crowd analysis; and 3) the error of video-based density estimation increases with the increase of the actual crowd density.  
 
-In our approach, which can complement the video-based analysis, we combat the three above mentioned issues by exploiting the ubiquity of smart phones, as in ((4) (5), (6) from proposal?). Our living laboratory is the Amsterdam Arena(citation from proposal). Or methodology consists of three steps.  First, we are using Wi-Fi routers in the stadium to gather the strengths of the wireless antena signals from individuals smart phones.  Second, we are estimating anonymously the positions of the visitors from the signal strengths. This technique has been presented in (cite Jan's slides), and is similar to trilateration, that is, the way the Global Positioning System (GPS) is implemented. However, due to signal interference and blockage in dense crowds, irregular internet packet rates, and systematic errors leading to multiple local optima, the positioning itself does not suffice to estimate the crowd density. Thus, in our third step, we aggregate the results from the positioning and apply statistical ensembling to obtain an estimation of the crowd density. With the first two steps, we are handling issues 1) and 2) mentioned above. With the third step, which is the main contribution of this paper, we are handling issue 3) -  that is, with our method the precision of estimation actually increases as the crowd density increases. 
+In our approach, which can complement the video-based analysis, we combat the three above mentioned issues by exploiting the ubiquity of smart phones, as in ((4) (5), (6) from proposal?). Our living laboratory is the Amsterdam Arena \cite{arena}. Our methodology consists of three steps.  First, we are using Wi-Fi routers in the stadium to gather the strengths of the wireless antena signals from individuals smart phones.  Second, we are estimating anonymously the positions of the visitors from the signal strengths. This technique has been presented in \cite{customers_Jan}, and is similar to trilateration, that is, the way the Global Positioning System (GPS) is implemented. However, due to signal interference and blockage in dense crowds, irregular internet packet rates, and systematic errors leading to multiple local optima, the positioning itself does not suffice to estimate the crowd density. Thus, in our third step, we aggregate the results from the positioning and apply statistical ensembling to obtain an estimation of the crowd density. With the first two steps, we are handling issues 1) and 2) mentioned above. With the third step, which is the main contribution of this paper, we are handling issue 3) -  that is, with our method the precision of estimation actually increases as the crowd density increases. 
 
 The rest of the paper is organized as follows.....
 
@@ -217,14 +217,25 @@ below is a first sketch, nothing definite yet
 For the epochs during which a mobile device is not detected we assume Brownian motion (without drift), which is defined by
 
 \begin{equation}
-\text{d}X(t)=\sqrt{2D}\text{d}W(t)
+\text{d}X(t)=\sigma\text{d}W(t)
 \end{equation}
 where $W(t)$ is a Wiener process. The density function $f(t,x)$ of the displacement of $X$ in the time interval $[0,t]$ is known, and is a normal distribution with mean $X(0)$ and variance
 \begin{equation}
-\sigma^2=2Dt
+\text{Var(\textit{X(t)})}=\sigma^{2}t
 \end{equation}
-Thus, in case have no new observations, we can further smooth the density estimate from the previous epoch by convolution with a normal distribution. 
-The variance is determined by the length $t$ of the time interval, and the (average) walking speed of pedestrians. The walking speed in turn can be related to the local crowd density via the so-called fundamental diagram.\\
+Thus, in case we have no new observations, we smooth the density estimate from the previous epoch by convolution with the normal density function. 
+The variance is determined by the length $t$ of the time interval, and the walking speed of pedestrians.
+[Optional: We relate $\sigma^2$ to the walking speed of pedestrians as defined by]
+\begin{equation}
+\sigma^2=\frac{(\Delta X)^2}{\Delta t}
+\end{equation}
+The walking speed of pedestrians can be related to the local crowd density via the so-called \textit{Fundamental Diagram}. 
+The fundamental diagram generally states that walking speed of pedestrians is a decreasing function of the local crowd density [(Weidman 1992)].
+The fundamental diagram function has been the subject of extensive study [examples].
+Although all these studies agree on the decreasing form of the function, empirical studies in different countries and cultures have resulted in different forms and parameters values.
+
+Here we use the fundamental diagram as provided by ... [?]
+
 
 \subsubsection{Issue 3: using Big data again}
 
@@ -282,7 +293,7 @@ Sonja:Mention somewhere that in the documentary of the LP disaster people were r
 *************n.b. in related work section put all that use wi-fi tracking, for those that use GPS tracking only mention that this does not work in indoor spaces and that it requires participation. Not necessary to put work on video tracking in related work - it is already mentioned in intro. Mention also bluetooth tracking, but bluetooth is not so ubiquitous and our principles apply also if bluetooth was used (right?) 
 Finally, none of the mentioned work uses our approach of modeling the position of an individual as a probability distribution; our method is designed to attack the problem of having a dense crowd; we are not interested in precise estimations for freely moving crowds; rather, we are interested in obtaining precise estimation when the  concert crowds is dense and static due to this. blah blah (sonja: explain better)********
 
-Future work: indclude map of the venue in the calculations, perhaps not both dark  regions in \ref{fig:trilateration_problem} are accessible by people!
+Future work: include map of the venue in the calculations, perhaps not both dark  regions in \ref{fig:trilateration_problem} are accessible by people!
 
 Also future work: the speed in the brownian motion should depend on the local crowd density, rather than on the average crowd density.
 

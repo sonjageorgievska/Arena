@@ -1,5 +1,15 @@
 \begin{thebibliography}{10}
 
+\bibitem{arena}
+Amsterdam arena opens smart city testing centre.
+\newblock {\em Telecompaper}, 2015.
+
+\bibitem{customers_Jan}
+Jan Amoraal.
+\newblock Thou customers, where are thou: Kpmg’s indoor (wi-fi) tracking:
+  From simulation to implementation.
+\newblock {\em TopQuants}, 2014.
+
 \bibitem{delafontaine:1}
 M.~Delafontaine, M.~Versichele, T.~Neutens, and N.~Van de~Weghe.
 \newblock Analysing spatiotemporal sequences in bluetooth tracking data.
@@ -9,6 +19,31 @@ M.~Delafontaine, M.~Versichele, T.~Neutens, and N.~Van de~Weghe.
 D.~Helbing and A.~Johansson.
 \newblock The.
 \newblock {\em Physical Review E}, 75, 2007.
+
+\bibitem{Helbing2012}
+Dirk Helbing and Pratik Mukerji.
+\newblock Crowd disasters as systemic failures: analysis of the love parade
+  disaster.
+\newblock {\em EPJ Data Science}, 1(1):1--40, 2012.
+
+\bibitem{Krausz2012307}
+Barbara Krausz and Christian Bauckhage.
+\newblock Loveparade 2010: Automatic video analysis of a crowd disaster.
+\newblock {\em Computer Vision and Image Understanding}, 116(3):307 -- 319,
+  2012.
+\newblock Special issue on Semantic Understanding of Human Behaviors in Image
+  Sequences.
+
+\bibitem{Crowded_Scene_Analysis}
+T.~Li, H.~Chang, M.~Wang, B.~Ni, R.~Hong, and S.~Yan.
+\newblock Crowded scene analysis: A survey.
+\newblock {\em IEEE Transactions on Circuits and Systems for Video Technology},
+  25(3):367--386, March 2015.
+
+\bibitem{density}
+Dirk Oberhagemann.
+\newblock Static and dynamic crowd densities at major public events.
+\newblock Technical report, vfdb, Postfach 1231, 48338 Altenberge, March 2012.
 
 \bibitem{schauer:1}
 L.~Schauer, M.~Werner, and P.~Marcus.
