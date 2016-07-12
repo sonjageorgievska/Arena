@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 \begin{document}
 
-\title{Crowd density estimation from Wi-Fi positioning data in the Amsterdam Arena}
+\title{Towards detecting critical crowd density with Wi-Fi positioning: Case Amsterdam ArenA}
 \author{Sonja Georgievska, Philip Rutten, Jan Amoraal, Michael Lees, Sander Klous\footnote{authors and order could change by the time the paper is submitted}}
 \maketitle
 
@@ -33,9 +33,8 @@ Crowd disasters have taken many human lives. The Love Parade disaster (Duisburg,
 In our work we estimate crowd density during concerts in indoor spaces. A lot of research on estimating crowd density has been done using video processing from security cameras \cite{Crowded_Scene_Analysis, Krausz2012307}. However, this approach does not suffice to detect raised crowd density. First, it is difficult to obtain macroscopic overview of the crowd. Second, 
 the lighting conditions during concert hours might not be sufficient for video-based crowd analysis only. Finally, the error of video-based density estimation increases with the increase of the actual crowd density.  
 
-In our approach, which can complement the video-based analysis, we combat the three above mentioned issues by exploiting the ubiquity of smart phones, as has been done in (citations). Contrarily to most s
-uch approaches (citations), we don't require participation from the crowd. Our living laboratory is the Amsterdam Arena \cite{arena}.  We build upon previous work \cite{customers_jan}, where the location of a visitor is estimated anonymously based on the strengths of the Wi-Fi signals received at the ArenA Wi-Fi routers,  by a method similar to trilateration (the way the Global Positioning System is implemented). However, because in dense crowds a Wi-Fi signal is partially absorbed and partially reflected by the human bodies, the localization based on signals strengths alone does not suffice to estimate the crowd density; e.g. multiple optimal position estimations are possible.  Moreover, since we don't rely on the smart phones being connected to the Wi-Fi network, the signal rates are quite volatile, and the MAC addresses of the phones may change (be "randomized"), complying to some  vendors' privacy policy. In this paper, we address those issues. We borrow ideas from statistical mechanics to estimate the crowd density: rather than estimating the position of a visitor, we create a continuous probability distribution over all possible positions (which is usually bimodal). We rely on the law of the large numbers, with adaptation to correlated variables, to estimate the crowd density by aggregating the individual distributions. The individual probability distribution turns gradually into a uniform distribution, with which we address the problem of outdated signals. Finally, we use the law of large numbers again and the "randomized MAC address" tag, that is available with the data, to account for the fact that a portion of the MAC addresses are randomized. Thus, the advantage of our methodology when compared to other methodologies is that our estimation becomes more (rather than less) precise when the number of people increases. This suits the purpose of being able to detect raised crowd density. 
-We also validate our methodology experimentally by comparing the crowd density estimation time series to the ground truth obtained from security cameras. \marginpar{val. to be done}
+In our approach, which can complement the video-based analysis, we combat the three above mentioned issues by exploiting the ubiquity of smart phones, as has been done in (citations). Contrarily to most such approaches (citations), we \marginpar{add missing citations twice} don't require participation from the crowd. Our living laboratory is the Amsterdam Arena \cite{arena}.  We build upon previous work \cite{customers_jan}, where the location of a visitor is estimated anonymously based on the strengths of the Wi-Fi signals received at the ArenA Wi-Fi routers,  by a method similar to trilateration (the way the Global Positioning System is implemented). However, because in dense crowds a Wi-Fi signal is partially absorbed and partially reflected by the human bodies, the localization based on signals strengths alone does not suffice to estimate the crowd density; e.g. multiple optimal position estimations are possible.  Moreover, since we don't rely on the smart phones being connected to the Wi-Fi network, the signal rates are quite volatile, and the MAC addresses of the phones may change (be "randomized"), complying to some  vendors' privacy policy. In this paper, we address those issues. We borrow ideas from statistical mechanics to estimate the crowd density: rather than estimating the position of a visitor, we create a continuous probability distribution over all possible positions (which is usually bimodal). We rely on the law of the large numbers, with adaptation to correlated variables, to estimate the crowd density by aggregating the individual distributions. The individual probability distribution turns gradually into a uniform distribution, with which we address the problem of outdated signals. Finally, we use the law of large numbers again and the "randomized MAC address" tag, that is available with the data, to account for the fact that a portion of the MAC addresses are randomized. Thus, the advantage of our methodology when compared to other methodologies is that our estimation becomes more (rather than less) precise when the number of people increases. This suits the purpose of being able to detect raised crowd density. 
+We also validate our methodology experimentally by comparing the crowd density estimation time series to the ground truth obtained from security cameras. \marginpar{validation to be done}
 
 \begin{comment}
 Our methodology consists of three steps.  First, we are using Wi-Fi routers in the stadium to gather the strengths of the wireless antena signals from individuals smart phones.  Second, we are estimating anonymously the positions of the visitors from the signal strengths. This technique has been presented in \cite{customers_Jan}, and is similar to trilateration, that is, the way the Global Positioning System (GPS) is implemented. However, due to signal interference and blockage in dense crowds, irregular internet packet rates, and systematic errors leading to multiple local optima, the positioning itself does not suffice to estimate the crowd density. Thus, in our third step, we aggregate the results from the positioning and apply statistical ensembling to obtain an estimation of the crowd density. 
@@ -43,26 +42,12 @@ Our methodology consists of three steps.  First, we are using Wi-Fi routers in t
 With the first two steps, we are handling issues 1) and 2) mentioned above. With the third step, which is the main contribution of this paper, we are handling issue 3) -  that is, with our method the precision of estimation actually increases as the crowd density increases. 
 \end{comment}
 
-The rest of the paper is organized as follows. In Sec \ref{sec:positioning}
+The rest of the paper is organized as follows. In Sec. \ref{sec:positioning} we explain the process of trilateration, that estimates the position of a Wi-Fi device based on the strength of the signals captured by the Wi-Fi routers in the stadium. In Sec. \ref{sec:density} we present our methodology for estimating in real-time the spatial density distribution of the crowd. We first identify which issues have not been resolved by the positioning in order to estimate crowd density, and which are not related to the mathematical methodology behind the positioning step. Then, we present our approach towards resolving the issues. In Sec. \ref{sec:validation} we compare our estimation of density to the one  obtained by video analysis. In Sec. \ref{sec:relatedwork} we put our approach into a perspective by comparing it to other approaches that are using the smart phones. We conclude and point to future research directions in Sec. \ref{sec:conclusion}.
 
 
 
 \marginpar{end from Sonja}
-\begin{comment}
-\begin{itemize}
 
-\item Background\\
-
-Human crowds are complex systems, and predicting or controlling their behavior is challenging. Our approach involves three phases, firstly data collection from Wi-Fi and Bluetooth sensors in the stadium, secondly data analytics, and finally we aim to use simulation to make forecasts about the crowd dynamics. 
-
-In this paper we present initial results on the data analytics and show how we can extract density maps from Wi-Fi positioning data. 
-
-\item Aims\\
-
-The main purpose is to be able to predict a possible crowd disaster and identify means to prevent it from happening. 
-
-\end{itemize}
-\end{comment}
 
 \section{Positioning of visitors using Wi-Fi sensors and smart phones}
 \label{sec:positioning}
@@ -84,10 +69,10 @@ The technology we deploy is based on the Wi-Fi signals from smart phones. We use
 
 \subsection{Issues with positioning (title to reconsider)}
 
-Under ideal circumstances, the positioning itself would suffice to estimate the crowd density per region of interest:  every few seconds we would only need to count the number of estimates that fall in the region of interest. However, we have observed several issues, which are not related to the mathematical methodology behind the positioning step, that prevent us to apply direct counting. 
+Under ideal circumstances, the positioning itself would suffice to estimate the spatial crowd density distribution:  every second we would only need to count the number of estimates per square meter. However, we have observed several issues, which are not related to the mathematical methodology behind the positioning step, that prevent us to apply direct counting. 
 \begin{enumerate}
 	\item
-	{\it Bimodal distributions of coordinates estimations}. We have sampled randomly 20 MAC addresses and plotted the estimations of their coordinates through time, where we have plotted only the estimations with a relatively small uncertainty. We observed persistent bimodal distribution of the estimations, an example of which can be seen in Fig. \ref{fig:bimodal}. 
+	{\it Bimodal distributions of coordinates estimations}. We have sampled randomly 20 MAC addresses and plotted the estimations of their coordinates through time, where we have plotted only the estimations with a relatively small (conditional) uncertainty. We observed persistent bimodal distribution of the estimations, an example of which can be seen in Fig. \ref{fig:bimodal}. 
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=120mm]{bimodal.jpg}
@@ -112,7 +97,7 @@ Under ideal circumstances, the positioning itself would suffice to estimate the 
 \subsection{Addressing the issues: real-time crowd density estimation}
 
 \subsubsection{Issue 1: creating a statistical ensemble}
-*************from Sonja
+*************start from Sonja
 
 In order to deal with issue 1 from above, let us start with the following observation: we are not interested in the individual locations of the MAC devices, but rather in the density of the crowd; we would like especially to have more precise estimation when the density reaches a certain threshold, so that the crowd that is not in the dense region can be alarmed promptly to move away from the dense region.
 This situation, dense crowd, means that there is more blockage of signals from bodies, less precise estimation of distance from Wi-Fi based on signal strength, which means that the rings in Fig.\ref{fig:trilateration_problem} would be even thicker. This exaggerates the effect of "bimodal" or even multi-modal distribution of position estimates. Thus, in a dense crowd, all we can derive from the positioning method for a MAC device is a probability distribution of its possible locations. For example, in the scenario in Fig. \ref{fig:trilateration_problem}, we can say that the MAC device is with a probability of 0.5 in the left grey region (region where all three rings overlap) and with a probability of 0.5 in the right grey region. While this does not provide us with useful information for the location of the MAC device, if we apply the same reasoning for all MAC devices, and, for a region R we add together the probabilities for all MAC devices that they are in that region, we end up with an estimation of the number of MAC devices in that region. If we assume that the locations of the MAC devices are mutually independent, we can  apply directly the law of the large numbers and conclude that for a dense crowd the error of the estimation of the density per region will vanish. However, we cannot assume the mentioned independence, because people tend to go in groups to concerts. In this case, the variance of the estimation is equal to the average correlation between the locations in the limiting case. Nevertheless, we can safely assume that for a regular crowd at a concert the average correlation tends to zero as the number of people increases; thus, the error of the estimation of the crowd density will in anyway diminish as the number of people tends to infinity. 
@@ -147,17 +132,17 @@ Then,
 \sum_{i \not =  j}Cov(X_i,X_j) = 2 \sum_{1\leq i <  j \leq n }Cov(X_i,X_j) =  2 \sum_{i,j: i \sim j }Cov(X_i,X_j)  \leq 2 n \cdot \frac{\lambda(\lambda - 1)}{2} \cdot\kappa = n  \kappa \lambda(\lambda - 1)
 \end{equation} 
 where the inequality holds because the maximal number of groups is $n$ and the maximal number of pairs $(i,j)$ in a group is $\lambda(\lambda-1)/2$.
-Let $\mu = \frac{1}{n}\sum_{i=1}^{n} Var(X_i)$, that is, 
+Let $$\mu = \frac{1}{n}\sum_{i=1}^{n} Var(X_i),$$ that is, 
 denote by $\mu$ the average variance of $X_i$.  From \eqref{eq_Var} and \eqref{eq_covar} we have  
 
 \begin{equation}
 Var(\frac{X}{n} ) \leq \frac{1}{n^2}(n \mu + n  \kappa \lambda(\lambda - 1)) = \frac{1}{n}(\mu +  \kappa \lambda(\lambda - 1)), 
 \end{equation}
-which tends to $0$ when $n \rightarrow \infty$. Note that we have greatly overestimated the variance with the inequation in \eqref{eq_covar}. 
+which tends to $0$ when $n \rightarrow \infty$. Note that we have greatly overestimated the covariance with the inequation in \eqref{eq_covar}, which means that in practice the variance converges to $0$ much faster than as presented. 
 
 Next, we can proceed with derivation of $Prob(mac_i) \in R$ for arbitrary $i$ in order to evaluate $E(X)$. 
    
-**** below: in the kernel function there is a typo:  the negative sign in front of $u^2$ is forgotten
+
 ***************end from Sonja
 
 ***start from Philip
@@ -193,7 +178,7 @@ The density estimate for a mobile device $m$ at a location $(x,y)$ is defined by
 \end{equation}
 where $N$ is the number of measurements (positions) for MAC address $m$, and the kernel function $K$ is given by
 \begin{equation}
-K(u,\sigma)=\frac{1}{\sigma\sqrt{2\pi}}\exp(\frac{u^2}{2\sigma^2})
+K(u,\sigma)=\frac{1}{\sigma\sqrt{2\pi}}\exp(-\frac{u^2}{2\sigma^2})
 \end{equation}
 The final crowd density estimation is given by
 \begin{equation}
@@ -217,7 +202,7 @@ To take in account that visitors are moving, we subdivide the time window in mul
 \subsubsection{Issue 2: Conservation of mass }
 ****************begin from Sonja
 
-To address the second issue {\it Volatility of packet rates}, we ensure that we do not forget about the MAC devices that were not observed in the last time window. In fact, for every MAC device that was ever observed, until it has been observed again we maintain the old probability distribution, too. Over time this probability distribution turns gradually into a uniform by smoothing it every epoch with a Gaussian kernel. The size of the kernel changes over time and is related to the maximal speed that the MAC device can have under the current density distribution of the crowd. In other words, we assume a Brownian motion of the MAC device, where the speed is limited by the maximal speed of a pedestrian under the current crowd conditions (cite paper Johansson et al). When the MAC device is observed again, its old probability distribution is simply overwritten by the probability distribution that is computed as above. 
+To address the second issue {\it Volatility of packet rates}, we ensure that we do not forget about the MAC devices that were not observed in the last time window. In fact, for every MAC device that was ever observed, until it has been observed again we maintain the old probability distribution, too. Over time this probability distribution turns gradually into a uniform by smoothing it every epoch with a Gaussian kernel. The size of the kernel changes over time and is related to the maximal speed that the MAC device can have under the current density distribution of the crowd. In other words, we assume a Brownian motion of the MAC device, where the speed is limited by the maximal speed of a pedestrian under the current crowd conditions (cite paper Johansson et al). When the MAC device is observed again, its old probability distribution is simply overwritten by the probability distribution that is computed as above. \marginpar{insert a picture}
 
 Formally,  (now write formulas) 
 
@@ -269,14 +254,16 @@ Note that this ratio should be re-computed periodically, to account for the chan
 *******end from Sonja
 
 
-\subsection{Validation}
-Maybe with crowd sourcing images and videos from Sensation 2015 Amsterdam White
+\section{Validation}\label{sec:validation}
+Either with official videos from the organizational team of  Sensation 2015 Amsterdam White, or with security camera videos from Sensation 2016, in which case the analysis needs to be re-applied.
 
 
-\section{Related work}
+\section{Related work}\label{sec:relatedwork}
+****In final version: first split all into those that ask for participation and those that do not. Then, among those that do not ask for participation, say why our approach is better***
 
 Wirz \textit{et al.} (2012) \cite{wirz:1} infer crowd density from GPS location traces of people who use an App during the 2011 Lord Mayor Show in London. They visualize the data in real-time, and generate heat maps (dynamically) using the kernel density estimation (KDE) method. In (Wirz \textit{et al.} 2013) \cite{wirz:2} the methodology is presented more elaborately, using a real-world data set collected during the same festival. The relation between the number of App users and the crowd density is calibrated (using linear regression), which forms the basis of their participatory sensing method. **********from Sonja: but the main idea/proposition in this paper is that they are reverting the formula for speed as a function of density of Johansson, to infer the density when they know the speed (??)******end from sonja*****
 The accuracy of the smoothing method is assessed using ground truth crowd density information obtained from video footage recorded by CCTV cameras. 
+
 The influence of the kernel radius on the correlation between the actual density and the density of App is analysed.
 
 The Gaussian weight function used in (Wirz \textit{et al.} 2012; 2013) \cite{wirz:1}\cite{wirz:2} is introduced in Helbing \textit{et al.} (2007) \cite{helbing:1} to estimate local densities in an area captured by video cameras during the Hajj in Mina/Makkah in 1426H on January 12, 2006.\\
@@ -296,15 +283,15 @@ Weppner and Lukowicz (2013) \cite{weppner:1} estimate crowd densities during a s
 
 In Weppner \textit{et al.} (2014) \cite{weppner:2} similar methods are applied to a city-wide festival in Zurich 2013, now supported by GPS data.
 
+*************n.b. in related work section put all that use wi-fi tracking, for those that use GPS tracking only mention that this does not work in indoor spaces and that it requires participation. Not necessary to put work on video tracking in related work - it is already mentioned in intro. Mention also bluetooth tracking, but bluetooth is not so ubiquitous and our principles apply also if bluetooth was used (right?) Finally, none of the mentioned work uses our approach of modeling the position of an individual as a probability distribution; our method is designed to attack the problem of having a dense crowd; we are not interested in precise estimations for freely moving crowds; rather, we are interested in obtaining precise estimation when the  concert crowds is dense and static due to this. blah blah (sonja: explain better)********
 
 
-\section{Conclusion}
+\section{Conclusion}\label{sec:conclusion}
 
 Sonja:Mention somewhere that in the documentary of the LP disaster people were raising their phones up to look for a way out. (which is good , less blockage of signals)
 
 
-*************n.b. in related work section put all that use wi-fi tracking, for those that use GPS tracking only mention that this does not work in indoor spaces and that it requires participation. Not necessary to put work on video tracking in related work - it is already mentioned in intro. Mention also bluetooth tracking, but bluetooth is not so ubiquitous and our principles apply also if bluetooth was used (right?) 
-Finally, none of the mentioned work uses our approach of modeling the position of an individual as a probability distribution; our method is designed to attack the problem of having a dense crowd; we are not interested in precise estimations for freely moving crowds; rather, we are interested in obtaining precise estimation when the  concert crowds is dense and static due to this. blah blah (sonja: explain better)********
+
 
 Future work: include map of the venue in the calculations, perhaps not both dark  regions in \ref{fig:trilateration_problem} are accessible by people!
 
