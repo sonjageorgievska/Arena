@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.21)  12 JUL 2016 19:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.21)  13 JUL 2016 17:36
 entering extended mode
 **./draft-31052016.tex
 (draft-31052016.tex
@@ -564,6 +564,20 @@ File: bimodal.jpg Graphic file (type jpg)
 Package pdftex.def Info: bimodal.jpg used on input line 78.
 (pdftex.def)             Requested size: 341.43306pt x 166.72256pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+[]\OT1/cmr/m/n/10 change the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+\OT1/cmr/m/n/10 po-si-tion of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+\OT1/cmr/m/n/10 put units
+ []
+
 <trilateration_problem.jpg, id=15, 95.75775pt x 83.71275pt>
 File: trilateration_problem.jpg Graphic file (type jpg)
 
@@ -577,54 +591,77 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2] [3 <./bimodal.jpg> <./trilateration_problem.jpg>] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
+[2] [3 <./bimodal.jpg> <./trilateration_problem.jpg>]
+<non-smoothed-histo.png, id=26, 1156.32pt x 722.7pt>
+File: non-smoothed-histo.png Graphic file (type png)
 
- []
+<use non-smoothed-histo.png>
+Package pdftex.def Info: non-smoothed-histo.png used on input line 162.
+(pdftex.def)             Requested size: 369.88582pt x 231.16946pt.
+ <smoothed-histo.png, id=28, 1156.32pt x 722.7pt>
+File: smoothed-histo.png Graphic file (type png)
 
-[5] <RatioRandNonrand.jpeg, id=38, 2409.0pt x 1176.395pt>
+<use smoothed-histo.png>
+Package pdftex.def Info: smoothed-histo.png used on input line 164.
+(pdftex.def)             Requested size: 369.88582pt x 231.16946pt.
+ [4] [5 <./non-smoothed-histo.png> <./smoothed-histo.png>] [6] <RatioRandNonran
+d.jpeg, id=46, 2409.0pt x 1176.395pt>
 File: RatioRandNonrand.jpeg Graphic file (type jpg)
 
 <use RatioRandNonrand.jpeg>
 Package pdftex.def Info: RatioRandNonrand.jpeg used on input line 246.
 (pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
- [6 <./RatioRandNonrand.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
+
+Underfull \hbox (badness 1960) in paragraph at lines 253--253
+[]\OT1/cmr/m/n/10 mention the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--253
+\OT1/cmr/m/n/10 ab-so-lute
+ []
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 253--253
+\OT1/cmr/m/n/10 num-bers, or
+ []
+
+[7 <./RatioRandNonrand.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 271--272
 
  []
 
-[7] (draft-31052016.bbl [8]) [9] (draft-31052016.aux) ) 
+(draft-31052016.bbl [8]) [9] (draft-31052016.aux) ) 
 Here is how much of TeX's memory you used:
- 2807 strings out of 493335
- 35935 string characters out of 3136680
- 102415 words of memory out of 3000000
- 6274 multiletter control sequences out of 15000+200000
+ 2819 strings out of 493335
+ 36192 string characters out of 3136680
+ 103423 words of memory out of 3000000
+ 6283 multiletter control sequences out of 15000+200000
  13506 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,13n,24p,2209b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmr9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmsy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8
-.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.p
-fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-
-Output written on draft-31052016.pdf (9 pages, 1216303 bytes).
+ 37i,13n,24p,2257b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files (x86)/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+y6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.
+pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><
+C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on draft-31052016.pdf (9 pages, 1664311 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
+ 116 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
