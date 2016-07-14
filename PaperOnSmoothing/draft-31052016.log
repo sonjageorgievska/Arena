@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.21)  13 JUL 2016 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.21)  14 JUL 2016 17:33
 entering extended mode
 **./draft-31052016.tex
 (draft-31052016.tex
@@ -445,34 +445,56 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
+(C:\Users\sonja\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\subcaption.sty
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+
+(C:\Users\sonja\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(C:\Users\sonja\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen114
+\captionmargin@=\dimen115
+\captionwidth=\dimen116
+\caption@tempdima=\dimen117
+\caption@indent=\dimen118
+\caption@parindent=\dimen119
+\caption@hangindent=\dimen120
+)
+\c@ContinuedFloat=\count100
+)
+\c@subfigure=\count101
+\c@subtable=\count102
+)
 (draft-31052016.aux)
 \openout1 = `draft-31052016.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
 (C:\Users\sonja\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count100
-\scratchdimen=\dimen114
+\scratchcounter=\count103
+\scratchdimen=\dimen121
 \scratchbox=\box28
-\nofMPsegments=\count101
-\nofMParguments=\count102
+\nofMPsegments=\count104
+\nofMParguments=\count105
 \everyMPshowfont=\toks24
-\MPscratchCnt=\count103
-\MPscratchDim=\dimen115
-\MPnumerator=\count104
-\makeMPintoPDFobject=\count105
+\MPscratchCnt=\count106
+\MPscratchDim=\dimen122
+\MPnumerator=\count107
+\makeMPintoPDFobject=\count108
 \everyMPtoPDFconversion=\toks25
 ) ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
@@ -517,64 +539,66 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 13.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for U+msa on input line 15.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 13.
+LaTeX Font Info:    Try loading font information for U+msb on input line 15.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 13.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 15.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
 
-Underfull \hbox (badness 1087) in paragraph at lines 19--19
+Underfull \hbox (badness 1087) in paragraph at lines 21--21
 []\OT1/cmr/m/n/10 val. to be
  []
 
 
-Underfull \hbox (badness 3068) in paragraph at lines 36--36
+Underfull \hbox (badness 3068) in paragraph at lines 38--38
 []\OT1/cmr/m/n/10 add miss-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--36
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/cmr/m/n/10 ci-ta-tions
  []
 
 [1
 
 {C:/Users/sonja/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []\OT1/cmr/m/n/10 end from
  []
 
 <bimodal.jpg, id=14, 2409.0pt x 1176.395pt>
 File: bimodal.jpg Graphic file (type jpg)
  <use bimodal.jpg>
-Package pdftex.def Info: bimodal.jpg used on input line 78.
+Package pdftex.def Info: bimodal.jpg used on input line 80.
 (pdftex.def)             Requested size: 341.43306pt x 166.72256pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
 []\OT1/cmr/m/n/10 change the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
 \OT1/cmr/m/n/10 po-si-tion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
 \OT1/cmr/m/n/10 put units
  []
 
@@ -582,7 +606,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--82
 File: trilateration_problem.jpg Graphic file (type jpg)
 
 <use trilateration_problem.jpg>
-Package pdftex.def Info: trilateration_problem.jpg used on input line 85.
+Package pdftex.def Info: trilateration_problem.jpg used on input line 87.
 (pdftex.def)             Requested size: 113.81102pt x 99.50188pt.
 
 
@@ -591,77 +615,141 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2] [3 <./bimodal.jpg> <./trilateration_problem.jpg>]
-<non-smoothed-histo.png, id=26, 1156.32pt x 722.7pt>
+[2] [3 <./bimodal.jpg> <./trilateration_problem.jpg>] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+\OT1/cmr/m/n/10 make viz.
+ []
+
+<non-smoothed-histo.png, id=35, 1156.32pt x 722.7pt>
 File: non-smoothed-histo.png Graphic file (type png)
 
 <use non-smoothed-histo.png>
-Package pdftex.def Info: non-smoothed-histo.png used on input line 162.
-(pdftex.def)             Requested size: 369.88582pt x 231.16946pt.
- <smoothed-histo.png, id=28, 1156.32pt x 722.7pt>
+Package pdftex.def Info: non-smoothed-histo.png used on input line 165.
+(pdftex.def)             Requested size: 181.18439pt x 113.23036pt.
+ <smoothed-histo.png, id=37, 1156.32pt x 722.7pt>
 File: smoothed-histo.png Graphic file (type png)
 
 <use smoothed-histo.png>
-Package pdftex.def Info: smoothed-histo.png used on input line 164.
-(pdftex.def)             Requested size: 369.88582pt x 231.16946pt.
- [4] [5 <./non-smoothed-histo.png> <./smoothed-histo.png>] [6] <RatioRandNonran
-d.jpeg, id=46, 2409.0pt x 1176.395pt>
+Package pdftex.def Info: smoothed-histo.png used on input line 171.
+(pdftex.def)             Requested size: 181.18439pt x 113.23036pt.
+ [5 <./non-smoothed-histo.png> <./smoothed-histo.png>]
+<brownian-smoothing-0002.png, id=43, 828.09375pt x 575.14874pt>
+File: brownian-smoothing-0002.png Graphic file (type png)
+
+<use brownian-smoothing-0002.png>
+Package pdftex.def Info: brownian-smoothing-0002.png used on input line 239.
+(pdftex.def)             Requested size: 135.89174pt x 94.37766pt.
+
+<brownian-smoothing-0004.png, id=44, 870.25125pt x 569.87906pt>
+File: brownian-smoothing-0004.png Graphic file (type png)
+
+<use brownian-smoothing-0004.png>
+Package pdftex.def Info: brownian-smoothing-0004.png used on input line 245.
+(pdftex.def)             Requested size: 135.89174pt x 88.98251pt.
+
+<brownian-smoothing-0006.png, id=45, 840.13875pt x 578.16pt>
+File: brownian-smoothing-0006.png Graphic file (type png)
+
+<use brownian-smoothing-0006.png>
+Package pdftex.def Info: brownian-smoothing-0006.png used on input line 251.
+(pdftex.def)             Requested size: 135.89174pt x 93.51318pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--280
+\OT1/cmr/m/n/10 to in-clude
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--280
+\OT1/cmr/m/n/10 in-for-ma-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--280
+\OT1/cmr/m/n/10 in-side the
+ []
+
+<nonrandomized.jpeg, id=46, 2409.0pt x 1176.395pt>
+File: nonrandomized.jpeg Graphic file (type jpg)
+ <use nonrandomized.jpeg>
+Package pdftex.def Info: nonrandomized.jpeg used on input line 289.
+(pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<randomized.jpeg, id=47, 2409.0pt x 1176.395pt>
+File: randomized.jpeg Graphic file (type jpg)
+ <use randomized.jpeg>
+Package pdftex.def Info: randomized.jpeg used on input line 295.
+(pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<RatioRandNonrand.jpeg, id=48, 2409.0pt x 1176.395pt>
 File: RatioRandNonrand.jpeg Graphic file (type jpg)
 
 <use RatioRandNonrand.jpeg>
-Package pdftex.def Info: RatioRandNonrand.jpeg used on input line 246.
+Package pdftex.def Info: RatioRandNonrand.jpeg used on input line 301.
 (pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
 
-Underfull \hbox (badness 1960) in paragraph at lines 253--253
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 1960) in paragraph at lines 308--308
 []\OT1/cmr/m/n/10 mention the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--253
+Underfull \hbox (badness 10000) in paragraph at lines 308--308
 \OT1/cmr/m/n/10 ab-so-lute
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 253--253
+Underfull \hbox (badness 1331) in paragraph at lines 308--308
 \OT1/cmr/m/n/10 num-bers, or
  []
 
-[7 <./RatioRandNonrand.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+[6 <./brownian-smoothing-0002.png> <./brownian-smoothing-0004.png> <./brownian-
+smoothing-0006.png>] [7 <./nonrandomized.jpeg> <./randomized.jpeg> <./RatioRand
+Nonrand.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
-(draft-31052016.bbl [8]) [9] (draft-31052016.aux) ) 
+[8] (draft-31052016.bbl [9]) [10] (draft-31052016.aux) ) 
 Here is how much of TeX's memory you used:
- 2819 strings out of 493335
- 36192 string characters out of 3136680
- 103423 words of memory out of 3000000
- 6283 multiletter control sequences out of 15000+200000
+ 3970 strings out of 493335
+ 57259 string characters out of 3136680
+ 123680 words of memory out of 3000000
+ 7420 multiletter control sequences out of 15000+200000
  13506 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,13n,24p,2257b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files (x86)/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-msy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-y6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.
-pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><
-C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on draft-31052016.pdf (9 pages, 1664311 bytes).
+ 42i,13n,40p,2257b,373s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmr9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmsy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+msy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.
+pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb
+>
+Output written on draft-31052016.pdf (10 pages, 2800461 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
+ 126 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

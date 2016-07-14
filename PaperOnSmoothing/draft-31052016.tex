@@ -6,6 +6,8 @@
 \usepackage{fullpage}
 \usepackage{verbatim}
 \usepackage{graphicx}
+
+\usepackage{subcaption}
 \begin{document}
 
 \title{Towards detecting critical crowd density with Wi-Fi positioning: Case Amsterdam ArenA}
@@ -53,7 +55,7 @@ The rest of the paper is organized as follows. In Sec. \ref{sec:positioning} we 
 \label{sec:positioning}
 
 
-This section will be written later, maybe with input from Jan.
+This section will be written later, maybe with input from Jan. 
 
 \begin{comment}
 The technology we deploy is based on the Wi-Fi signals from smart phones. We use the existing network of Wi-Fi access points in the stadium, and capture probe signals from smart phones, which are processed and anonymised in alignment with privacy concerns. The positions of smart phones are reconstructed using received signal strengths and methods similar to trilateration. 
@@ -123,7 +125,7 @@ Var(\frac{X}{n} ) =  Var(\frac{1}{n} \cdot \sum_{i=1}^{n} X_i) = \frac{1}{n^2} \
 \end{equation}
 
 
-We can assume that there is an upper limit $\lambda$ of a number of people that go to a concert together (a group), that is, whose locations are correlated\footnote{Actually, when the crowd is so dense that people can not move freely anymore, the whole crowd becomes a "group" (cite LP disaster) and all locations are correlated. But we aim to detect a high density with our method {\it before} this happens, to react preventively; otherwise, it is too late.}. Denote by $\kappa$ the maximal covariance between any $X_i$ and $X_j$ and let us write $i \sim j$ if and only if $i$ and $j$ are in the same group. 
+We can assume that there is an upper limit $\lambda$ of a number of people that go to a concert together (a group), that is, whose locations are correlated\footnote{Actually, when the crowd is so dense that people can not move freely anymore, the whole crowd becomes a "group" (as in the  Love Parade disaster) and all locations are correlated. But we aim to detect a high density with our method {\it before} this happens, to react preventively; otherwise, it is too late.}. Denote by $\kappa$ the maximal covariance between any $X_i$ and $X_j$ and let us write $i \sim j$ if and only if $i$ and $j$ are in the same group. 
 Then, 
 \begin{equation}\label{eq_covar}
 \sum_{i \not =  j}Cov(X_i,X_j) = 2 \sum_{1\leq i <  j \leq n }Cov(X_i,X_j) =  2 \sum_{i,j: i \sim j }Cov(X_i,X_j)  \leq 2 n \cdot \frac{\lambda(\lambda - 1)}{2} \cdot\kappa = n  \kappa \lambda(\lambda - 1)
@@ -147,25 +149,31 @@ To visualise the spatiotemporal behaviour of crowd density in real-time we dynam
 \end{comment}
 
 The data provides us with a series of estimated positions of mobile devices, together with their corresponding values of measurement uncertainty (see Sec.\ref{sec:positioning}).
-\begin{comment}
-The uncertainty values are determined by the co-variance matrix resulting from the chi-square fitting method.
 
+%The uncertainty values are determined by the co-variance matrix resulting from the chi-square fitting method.
 
-\end{comment}
 From this data we wish to estimate the spatial probability distribution for an arbitrary MAC device $m$, along a moving time window.
 So, our first step is to select from the data the estimated $N$ positions whose time stamps fall within a specified time interval $[t-\Delta t,t]$.
 A natural way to construct a two-dimensional probability distribution would be to construct a histogram, by binning the positions and normalizing with $N$.
 However, we also wish to preserve the uncertainty that corresponds to each estimated position.
-Therefore, we first "smooth" each position into a bivariate Gaussian `bump', using the uncertainty values ($\sigma_{x}$ and $\sigma_{y}$) provided by the data as standard deviations. Then, for  $m$ we construct a two-dimensional probability density function (p.d.f.) by adding up these bumps, and  dividing the sum by $N$. For example, 
+Therefore, we first "smooth" each position into a bivariate Gaussian distribution (`bump'), using the uncertainty values ($\sigma_{x}$ and $\sigma_{y}$) provided by the data as standard deviations. Then, for  $m$ we construct a two-dimensional probability density function (p.d.f.) by adding up these bumps, and  dividing the sum by $N$.\marginpar{ref. Figure, make viz. smooth}. (In Fig. \ref{fig:smoothing} we show the result of smoothing a histogram of the device discussed in Fig.\ref{fig:bimodal}.) %For example, 
+
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=130mm]{non-smoothed-histo.png}
-	\hfill 
-	\includegraphics[width=130mm]{smoothed-histo.png}
-	\caption{Smoothing a histogram of recent positions}
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{non-smoothed-histo.png}
+		%\caption{1a}
+		%\label{fig:sfig1}
+	\end{subfigure}%
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{smoothed-histo.png}
+		%\caption{1b}
+		%\label{fig:sfig2}
+	\end{subfigure}
+	\caption{Smoothing a histogram with Gaussian kernels. Left: Original histogram. Right: The smoothed histogram.}
 	\label{fig:smoothing}
-	
-	
 \end{figure}
 
 
@@ -186,6 +194,8 @@ The final crowd density estimation is given by
 \hat{f}_{T}(x,y)=\sum_{m}\hat{f}_{m}(x,y)
 \label{total}
 \end{equation}
+To finish our  discussion, in order to evaluate $Prob(mac_i) \in R$ we need to integrate $\hat{f}_{m}(x,y)$ for $(x,y) \in R$. 
+
 Note that so far we assumed that in every time window there is at least one estimate for every MAC address ever detected. In what follows we explain how we capture the cases when this assumption does not hold. 
 
 \begin{comment}
@@ -203,31 +213,63 @@ To take in account that visitors are moving, we subdivide the time window in mul
 
 \subsubsection{Volatility of packet rates: Applying "conservation of mass" principle }
 
+(Needs to be finished.)
+To address the second issue, {\it Volatility of packet rates}, we ensure that we do not forget about the MAC devices that were not observed in the last time window. In fact, for every MAC device that was ever observed, until it has been observed again we maintain the old probability distribution, too. Over time this probability distribution turns gradually into a uniform by smoothing it every epoch with a Gaussian kernel (see Fig. \ref{fig:uniform} for an example). The size of the kernel changes over time and is related to the maximal speed that the MAC device can have under the current density distribution of the crowd. In other words, we assume a Brownian motion of the MAC device, where the speed is limited by the maximal speed of a pedestrian under the current crowd conditions (cite paper Johansson et al). When the MAC device is observed again, its old probability distribution is simply overwritten by the probability distribution that is computed as above.\marginpar{ref.  picture}
 
-To address the second issue, {\it Volatility of packet rates}, we ensure that we do not forget about the MAC devices that were not observed in the last time window. In fact, for every MAC device that was ever observed, until it has been observed again we maintain the old probability distribution, too. Over time this probability distribution turns gradually into a uniform by smoothing it every epoch with a Gaussian kernel. The size of the kernel changes over time and is related to the maximal speed that the MAC device can have under the current density distribution of the crowd. In other words, we assume a Brownian motion of the MAC device, where the speed is limited by the maximal speed of a pedestrian under the current crowd conditions (cite paper Johansson et al). When the MAC device is observed again, its old probability distribution is simply overwritten by the probability distribution that is computed as above. \marginpar{insert a picture}
+%\begin{figure}[h!]
+%	\begin{subfigure}
+%	\centering
+%	\includegraphics[width=60mm]{brownian-smoothing-0002.png}
+%	\end{subfigure}
+%	\begin{subfigure}
+%	\centering
+%	\includegraphics[width=60mm]{brownian-smoothing-0004.png}
+%    \end{subfigure}
+%	\begin{subfigure}
+%	\centering	
+%	\includegraphics[width=60mm]{brownian-smoothing-0006.png}
+%	\end{subfigure}	
+%	\caption{Turning a distribution gradually into uniform}
+%	\label{fig:uniform}		
+%\end{figure}
 
-Formally,  (now write formulas) 
+\begin{figure}[h!]
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{brownian-smoothing-0002.png}
+		%\caption{1a}
+		%\label{fig:sfig1}
+	\end{subfigure}%
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{brownian-smoothing-0004.png}
+		%\caption{1b}
+		%\label{fig:sfig2}
+	\end{subfigure}
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{brownian-smoothing-0006.png}
+		%\caption{1c}
+		%\label{fig:sfig3}
+	\end{subfigure}
+	\caption{Turning a distribution gradually into uniform}
+	\label{fig:uniform}
+\end{figure}
 
-
-
-\begin{comment}
-below is a first sketch, nothing definite yet
-\end{comment}
-
-For the epochs during which a mobile device is not detected we assume Brownian motion (without drift), which is defined by
-
+Formally, for the epochs during which a mobile device is not detected we assume Brownian motion (without drift), which is defined by
+% had to change X to B because I used X for the random variables above. Sorry.
 \begin{equation}
-\text{d}X(t)=\sigma\text{d}W(t)
+\text{d}B(t)=\sigma\text{d}W(t)
 \end{equation}
-where $W(t)$ is a Wiener process. The density function $f(t,x)$ of the displacement of $X$ in the time interval $[0,t]$ is known, and is a normal distribution with mean $X(0)$ and variance
+where $W(t)$ is a Wiener process. The density function $f(t,x)$ of the displacement of $X$ in the time interval $[0,t]$ is known, and is a normal distribution with mean $B(0)$ and variance
 \begin{equation}
-\text{Var(\textit{X(t)})}=\sigma^{2}t
+\text{Var(\textit{B(t)})}=\sigma^{2}t
 \end{equation}
 Thus, in case we have no new observations, we smooth the density estimate from the previous epoch by convolution with the normal density function. 
 The variance is determined by the length $t$ of the time interval, and the walking speed of pedestrians.
 [Optional: We relate $\sigma^2$ to the walking speed of pedestrians as defined by]
 \begin{equation}
-\sigma^2=\frac{(\Delta X)^2}{\Delta t}
+\sigma^2=\frac{(\Delta B)^2}{\Delta t}
 \end{equation}
 The walking speed of pedestrians can be related to the local crowd density via the so-called \textit{Fundamental Diagram}. 
 The fundamental diagram generally states that walking speed of pedestrians is a decreasing function of the local crowd density [(Weidman 1992)].
@@ -235,12 +277,25 @@ The fundamental diagram function has been the subject of extensive study [exampl
 Although all these studies agree on the decreasing form of the function, empirical studies in different countries and cultures have resulted in different forms and parameters values.
 
 Here we use the fundamental diagram as provided by ... [?]
+\marginpar{add rescaling to include information that all visitors are still inside the stadium }
 
 
 \subsubsection{MAC address randomization: using Big data again}
 
-To address the last issue, {\it MAC address randomization}, we rely once again on the fact that we have a lot of data. Namely, we know from the structure of the MAC address whether it is randomized or not. Figure \ref{fig:randomized} shows the ratio between randomized and non-randomized addresses observed per minute from midnight until 6:00 am. We can see that it is quite stable through time; in fact, the Pearson correlation coefficient between the time series of randomized and non-randomized addresses is 0.88. 
+To address the last issue, {\it MAC address randomization}, we rely once again on the fact that we have a lot of data. Namely, we know from the structure of the MAC address whether it has been randomized or not. Figure \ref{fig:randomized} shows the ratio between randomized and non-randomized addresses observed per minute from midnight until 6:00 am. We can see that it is quite stable through time; in fact, the Pearson correlation coefficient between the time series of randomized and non-randomized addresses is 0.88. 
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=130mm]{nonrandomized.jpeg}
+	\caption{Non-randomized addresses observed per minute}
+	\label{fig:nonrandomizedadresses}
+\end{figure} 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=130mm]{randomized.jpeg}
+	\caption{Randomized addresses observed per minute}
+	\label{fig:randomizedaddresses}
+\end{figure} 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=130mm]{RatioRandNonrand.jpeg}
@@ -248,7 +303,7 @@ To address the last issue, {\it MAC address randomization}, we rely once again o
 	\label{fig:randomized}
 \end{figure} 
 
-Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by 1.225, to account for the ignored MAC devices. We choose factor 1.225 to allow for a safety margin: in the peaks of the graph in Fig. \ref{fig:randomized} the values are 0.225, and we would rather overestimate than underestimate the crowd density. 
+\noindent Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by 1.225, to account for the ignored MAC devices. We choose factor 1.225 to allow for a safety margin: in the peaks of the graph in Fig. \ref{fig:randomized} the values are 0.225, and we would rather overestimate than underestimate the crowd density. 
 Note that this ratio should be re-computed periodically, to account for the changing conditions at the smart phones market. 
 \marginpar{mention the absolute numbers, or give graphs}
 
