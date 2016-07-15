@@ -156,7 +156,7 @@ From this data we wish to estimate the spatial probability distribution for an a
 So, our first step is to select from the data the estimated $N$ positions whose time stamps fall within a specified time interval $[t-\Delta t,t]$.
 A natural way to construct a two-dimensional probability distribution would be to construct a histogram, by binning the positions and normalizing with $N$.
 However, we also wish to preserve the uncertainty that corresponds to each estimated position.
-Therefore, we first "smooth" each position into a bivariate Gaussian distribution (`bump'), using the uncertainty values ($\sigma_{x}$ and $\sigma_{y}$) provided by the data as standard deviations. Then, for  $m$ we construct a two-dimensional probability density function (p.d.f.) by adding up these bumps, and  dividing the sum by $N$.\marginpar{ref. Figure, make viz. smooth}. (In Fig. \ref{fig:smoothing} we show the result of smoothing a histogram of the device discussed in Fig.\ref{fig:bimodal}.) %For example, 
+Therefore, we first "smooth" each position into a bivariate Gaussian distribution (`bump'), using the uncertainty values ($\sigma_{x}$ and $\sigma_{y}$) provided by the data as standard deviations. Then, for  $m$ we construct a two-dimensional probability density function (p.d.f.) by adding up these bumps, and  dividing the sum by $N$.\marginpar{make viz. smooth and not dark}. (In Fig. \ref{fig:smoothing} we show the result of smoothing a histogram of the device discussed in Fig.\ref{fig:bimodal}.) %For example, 
 
 \begin{figure}[h!]
 	\centering
@@ -303,7 +303,7 @@ To address the last issue, {\it MAC address randomization}, we rely once again o
 	\label{fig:randomized}
 \end{figure} 
 
-\noindent Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by 1.225, to account for the ignored MAC devices. We choose factor 1.225 to allow for a safety margin: in the peaks of the graph in Fig. \ref{fig:randomized} the values are 0.225, and we would rather overestimate than underestimate the crowd density. 
+\noindent Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by 1.225, to account for the ignored MAC devices. We choose factor 1.225 to allow for a safety margin: in the peaks of the graph in Fig. \ref{fig:randomized} the values are 0.225, and we would rather overestimate than underestimate the crowd density. \marginpar{in general: calculate it automatically, with a confidence interval}
 Note that this ratio should be re-computed periodically, to account for the changing conditions at the smart phones market. 
 \marginpar{mention the absolute numbers, or give graphs}
 
@@ -316,14 +316,20 @@ Note that by validation we mean more of calibration. In general the approach is 
 
 \section{Related work}\label{sec:relatedwork}
 In progress. 
-****In final version: first split all into those that ask for participation from the crowd	 and those that do not. Then, among those that do not ask for participation, say why our approach is better***
 
-Wirz \textit{et al.} (2012) \cite{wirz:1} infer crowd density from GPS location traces of people who use an App during the 2011 Lord Mayor Show in London. They visualize the data in real-time, and generate heat maps (dynamically) using the kernel density estimation (KDE) method. In (Wirz \textit{et al.} 2013) \cite{wirz:2} the methodology is presented more elaborately, using a real-world data set collected during the same festival. The relation between the number of App users and the crowd density is calibrated (using linear regression), which forms the basis of their participatory sensing method. **********from Sonja: but the main idea/proposition in this paper is that they are reverting the formula for speed as a function of density of Johansson, to infer the density when they know the speed (??)******end from sonja*****
-The accuracy of the smoothing method is assessed using ground truth crowd density information obtained from video footage recorded by CCTV cameras. 
+In the Introduction we mentioned the benefits of using smart phones based over video-based approach for density estimation of indoor concerts crowd; in fact, it is our opinion that the two approaches complement each other and in the future we plan to integrate both techniques in real time. Thus, in this section we are going to focus on previous work that estimates crowd density using wireless technologies. 
 
-The influence of the kernel radius on the correlation between the actual density and the density of App is analysed.
+\cite{weppner:1} estimate crowd densities by distributing volunteers in the crowd, who are carrying smart phones scanning for Bluetooth devices. They then use statistics to combine the different measurements in space and time. They improve their method from mere counting to more advanced statistical analysis in \cite{weppner:2}, by using relative features that are more robust
+against statistical variations of the number of devices. The features include 
+the average speed of scanning devices, the average bluetooth signal strength and its variance, etc.
 
-The Gaussian weight function used in (Wirz \textit{et al.} 2012; 2013) \cite{wirz:1}\cite{wirz:2} is introduced in Helbing \textit{et al.} (2007) \cite{helbing:1} to estimate local densities in an area captured by video cameras during the Hajj in Mina/Makkah in 1426H on January 12, 2006.\\
+%Wirz \textit{et al.} (2012) \cite{wirz:1} infer crowd density from GPS location traces of people who use an App during the 2011 Lord Mayor Show in London. They visualize the data in real-time, and generate heat maps (dynamically) using the kernel density estimation (KDE) method. 
+In  \cite{wirz:2} the authors follow a participatory sensing approach in which pedestrians share their locations on
+a voluntary basis. Since  only a fraction of
+all pedestrians share location information, they present a methodology to infer the crowd density from their walking speed, by inverting the formula for estimating maximal pedestrian speed given a crowd density, presented in \cite{Johannsson}. Note that in our case study the visitors of the concerts with a stage are mostly static without intention to reach a destination, so this technique cannot be directly applied. 
+
+
+%The Gaussian weight function used in (Wirz \textit{et al.} 2012; 2013) \cite{wirz:1}\cite{wirz:2} is introduced in Helbing \textit{et al.} (2007) \cite{helbing:1} to estimate local densities in an area captured by video cameras during the Hajj in Mina/Makkah in 1426H on January 12, 2006.\\
 
 A number of studies use Bluetooth to estimate crowd densities at a wide range of places and events.
 In these studies the position of a mobile phone is approximated to the location of the sensor by which it is detected.
@@ -336,11 +342,11 @@ Yoshimura \textit{et al.} (2016) \cite{yoshimura:1} use Bluetooth detection to a
 
 Delafontaine \textit{et al.} (2012) \cite{delafontaine:1} use a similar approach (of Bluetooth tracking) and apply (genetic) sequence alignment methods to analyze the resulting data which consists of different sequences of sensors (nodes) for detected mobile devices.
 
-Weppner and Lukowicz (2013) \cite{weppner:1} estimate crowd densities during a soccer European championship public viewing event and during the Oktoberfest, by distributing volunteers in the crowd, who are carrying smart phones scanning for Bluetooth devices. They then use statistics to combine the different measurements in space and time.
 
-In Weppner \textit{et al.} (2014) \cite{weppner:2} similar methods are applied to a city-wide festival in Zurich 2013, now supported by GPS data.
 
-*************n.b. in related work section put all that use wi-fi tracking, for those that use GPS tracking only mention that this does not work in indoor spaces and that it requires participation. Not necessary to put work on video tracking in related work - it is already mentioned in intro. Mention also bluetooth tracking, but bluetooth is not so ubiquitous and our principles apply also if bluetooth was used (right?) Finally, none of the mentioned work uses our approach of modeling the position of an individual as a probability distribution; our method is designed to attack the problem of having a dense crowd; we are not interested in precise estimations for freely moving crowds; rather, we are interested in obtaining precise estimation when the  concert crowds is dense and static due to this. blah blah (sonja: explain better)********
+%In Weppner \textit{et al.} (2014) \cite{weppner:2} similar methods are applied to a city-wide festival in Zurich 2013, now supported by GPS data.
+
+Finally, none of the mentioned work uses our approach of modeling the position of an individual as a probability distribution; our method is designed to attack the problem of having a dense crowd; we are not interested in precise estimations for freely moving crowds; rather, we are interested in obtaining precise estimation when the  concert crowds is dense and static...
 
 
 \section{Conclusion}\label{sec:conclusion}
