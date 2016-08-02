@@ -57,8 +57,27 @@ The rest of the paper is organized as follows. In Sec. \ref{sec:positioning} we 
 
 This section will be written later, maybe with input from Jan. 
 
+The positions of smart phones are reconstructed using received signal strength (RSS) values and methods similar to multi-lateration. 
+The method is based on the decrease of signal strength when the distance between transmitter and receiver increases.
+Using a model for the decrease, the distance between transmitter and receiver can be reconstructed from the received signal strength.
+When we have at least three such reconstructed distances, the position of a transmitter can be uniquely determined using the method of circular lateration [ref: Kushki et al.].\\
+The path loss model is the Friis equation, given by
+\begin{equation}
+P_{R}=P_{T}+10\lambda\log_{10}(\frac{c}{4\pi fr})
+\end{equation}
+where we use $\lambda=2$ (line of sight condition), $c$ is the speed of light, $f$ is 2.4 GHz, and $r$ is the distance between the position $(x,y)$ (in two dimensions) of the mobile device and the position $(x_{i},y_{i})$ of router $i$, given by 
+\begin{equation}
+r=\sqrt{((x-x_{i})^2+(y-y_{i})^2)}
+\end{equation}
+Received signal strengths of packets captured at different sensors are grouped in time to constitute separate `measurements'. 
+To estimate positions from these groups of measurements (signal strengths) a chi-square data fit is performed.\\
+
+The uncertainties associated with the chi-square fits are given by the covariance matrix, which is the inverse of the matrix of second-order derivatives of the chi-square function.
+The values in the covariance matrix give the uncertainty in the parameters that corresponds to a $1\sigma$ error or an increase of $\chi^2+1$.
+
+
 \begin{comment}
-The technology we deploy is based on the Wi-Fi signals from smart phones. We use the existing network of Wi-Fi access points in the stadium, and capture probe signals from smart phones, which are processed and anonymised in alignment with privacy concerns. The positions of smart phones are reconstructed using received signal strengths and methods similar to trilateration. 
+The technology we deploy is based on the Wi-Fi signals from smart phones. We use the existing network of Wi-Fi access points in the stadium, and capture probe signals from smart phones, which are processed and anonymised in alignment with privacy concerns. The positions of smart phones are reconstructed using received signal strength (RSS) values and methods similar to multi-lateration. 
 
 
 \begin{itemize}
