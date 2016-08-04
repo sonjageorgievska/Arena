@@ -76,17 +76,17 @@ The chi-square function is minimized by setting
 \begin{equation}
 \frac{d\chi^2}{dp}=0
 \end{equation}
-The uncertainties associated with the chi-square fits are calculated using the covariance matrix of the measurements.
+The uncertainties associated with the chi-square fits are calculated using the covariance matrix.
 If we assume Gaussian distributed measurements, the covariance matrix is the inverse of the matrix of second-order derivatives of the chi-square function, i.e.
 \begin{equation}
 C_{ij}^{-1}=\frac{1}{2}\frac{\partial^2\chi^2}{\partial p_{i}\partial p_{j}}
 \end{equation}
 The uncertainties in the parameters are obtained using a Taylor expansion of the nonlinear path loss function (Equation \ref{friis}).
-The values of the uncertainty that correspond to a $1\sigma$ error or an increase of $\chi^2+1$ are given by the projection matrix
+The uncertainty values that correspond to a $1\sigma$ error or an increase of $\chi^2+1$ are given by the covariance matrix of the parameters
 \begin{equation}
-P=HCH^\top
+C=HCH^\top
 \end{equation}
-where $H$ is a matrix consisting of (first-order) partial derivatives of the path loss model with respect to the fit parameters.
+where $H$ is a projection matrix consisting of (first-order) partial derivatives of the path loss model with respect to the fit parameters.
 The $1\sigma$ errors form the input to the smoothing method of the density estimation discussed in this paper.
 
 \begin{comment}
