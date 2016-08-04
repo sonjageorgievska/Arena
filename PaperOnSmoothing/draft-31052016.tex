@@ -84,9 +84,9 @@ C_{ij}^{-1}=\frac{1}{2}\frac{\partial^2\chi^2}{\partial p_{i}\partial p_{j}}
 The uncertainties in the parameters are obtained using a Taylor expansion of the nonlinear path loss function (Equation \ref{friis}).
 The uncertainty values that correspond to a $1\sigma$ error or an increase of $\chi^2+1$ are given by the covariance matrix of the parameters
 \begin{equation}
-C=HCH^\top
+C=H^\top V^{-1}H
 \end{equation}
-where $H$ is a projection matrix consisting of (first-order) partial derivatives of the path loss model with respect to the fit parameters.
+where $V$ is the covariance matrix of the measurement values, and $H$ is a projection matrix consisting of the partial derivatives of the path loss model with respect to the fit parameters.
 The $1\sigma$ errors form the input to the smoothing method of the density estimation discussed in this paper.
 
 \begin{comment}
