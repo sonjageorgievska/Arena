@@ -57,37 +57,33 @@ The rest of the paper is organized as follows. In Sec. \ref{sec:positioning} we 
 
 This section will be written later, maybe with input from Jan. 
 
-The positions of smart phones are reconstructed using received signal strength (RSS) values and methods similar to multi-lateration. 
-The method is based on the decrease of signal strength when the distance between transmitter and receiver increases.
-Using a model for the decrease, the distance between transmitter and receiver can be reconstructed from the received signal strength.
-When we have at least three such reconstructed distances, the position of a transmitter can be uniquely determined using the method of circular lateration [ref: Kushki et al.].\\
-The path loss model is the Friis equation, given by
+The positions of smart phones are reconstructed using methods based on lateration. 
+The lateration method uses the distances between a smart phone and multiple reference points, which in this case are the existing Wi-Fi access points (APs) in the stadium.
+Smart phones transmit Wi-Fi signals which are captured at the APs.
+The captured Wi-Fi signals contain information about the mesaured signal strength.
+Using a model for the relationship between the received signal strength (RSS) of the Wi-Fi signal and the distance between transmitter and receiver, the distance between smart phone and the AP is estimated.
+The distance between the position $(x,y)$ (in two dimensions) of the mobile device and the position $(x_{i},y_{i})$ of AP $i$, given by 
+\begin{equation}
+r_{i}^2=(x-x_{i})^2+(y-y_{i})^2
+\label{distance}
+\end{equation}
+The distances define circles with radius $r_{i}$ around the APs on which the transmitter may be located.
+When we have at least three such circles, the position of a transmitter can be uniquely determined at the intersection of the circles \cite{kushki:1}.
+
+The RSS value of a signal decreases when the distance between transmitter and receiver increases.
+The decrease is given by a path loss model, given by the Friis equation
 \begin{equation}
 P_{R}=P_{T}+10\lambda\log_{10}(\frac{c}{4\pi fr})
 \label{friis}
 \end{equation}
-where we use $\lambda=2$ (line of sight condition), $c$ is the speed of light, $f$ is 2.4 GHz, and $r$ is the distance between the position $(x,y)$ (in two dimensions) of the mobile device and the position $(x_{i},y_{i})$ of router $i$, given by 
-\begin{equation}
-r=\sqrt{((x-x_{i})^2+(y-y_{i})^2)}
-\end{equation}
-Received signal strengths of packets captured at different sensors are grouped in time to constitute separate measurements. 
-To estimate positions from these groups of measurements a chi-square data fit is performed.
-The chi-square function is minimized by setting
-\begin{equation}
-\frac{d\chi^2}{dp}=0
-\end{equation}
-The uncertainties associated with the chi-square fits are calculated using the covariance matrix.
-If we assume Gaussian distributed measurements, the covariance matrix is the inverse of the matrix of second-order derivatives of the chi-square function, i.e.
-\begin{equation}
-C_{ij}^{-1}=\frac{1}{2}\frac{\partial^2\chi^2}{\partial p_{i}\partial p_{j}}
-\end{equation}
-The uncertainties in the parameters are obtained using a Taylor expansion of the nonlinear path loss function (Equation \ref{friis}).
-The uncertainty values in the parameters that correspond to a $1\sigma$ error or an increase of $\chi^2+1$ are given by the elements in the covariance matrix
-\begin{equation}
-C=H^\top V^{-1}H
-\end{equation}
-where $V$ is the covariance matrix of the measurement values, and $H$ is a projection matrix consisting of the partial derivatives of the path loss model with respect to the fit parameters.
-The $1\sigma$ errors form the input to the smoothing method of the density estimation discussed in this paper.
+where we use $\lambda=2$ (line of sight condition), $c$ is the speed of light, $f$ is 2.4 GHz, and $r$ is the distance between the mobile device and the AP.\\
+The measured RSS values contain unpredictable variation due to noise, and interference such as absorption and reflection by obstacles between transmitter and receiver (shadowing and multipath effects) \cite{goldsmith}. The positions of these obstacles may change in time, in particular in the case of human bodies.
+As a result, the circles in the lateration method do not intersect at a unique point, and the system of equations defined in Equation \ref{distance} do not have an exact solution.
+In this case a statistical approach is taken to the determination of the position of the smart phone.
+The least squares method is used, which in our case takes the form of a chi-square data fit \cite{bevington}.
+Based on the chi-square fit, uncertainty values for the parameter estimates are calculated.
+These values represent parameter uncertainties that correspond to a $1\sigma$ error or an increase of $\chi^2+1$. 
+The $1\sigma$ error values form the input to the smoothing method of the density estimation discussed in this paper.
 
 \begin{comment}
 The technology we deploy is based on the Wi-Fi signals from smart phones. We use the existing network of Wi-Fi access points in the stadium, and capture probe signals from smart phones, which are processed and anonymised in alignment with privacy concerns. The positions of smart phones are reconstructed using received signal strength (RSS) values and methods similar to multi-lateration. 

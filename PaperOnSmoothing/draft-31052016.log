@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.2)  5 AUG 2016 11:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.2)  11 AUG 2016 16:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -492,181 +492,171 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []\OT1/cmr/m/n/10 end from
  []
 
-[2] <bimodal.jpg, id=24, 2409.0pt x 1176.395pt>
+[2] <bimodal.jpg, id=22, 2409.0pt x 1176.395pt>
 File: bimodal.jpg Graphic file (type jpg)
  <use bimodal.jpg>
-Package pdftex.def Info: bimodal.jpg used on input line 112.
+Package pdftex.def Info: bimodal.jpg used on input line 108.
 (pdftex.def)             Requested size: 341.43306pt x 166.72256pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
+Underfull \hbox (badness 10000) in paragraph at lines 112--112
 []\OT1/cmr/m/n/10 change the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
+Underfull \hbox (badness 10000) in paragraph at lines 112--112
 \OT1/cmr/m/n/10 po-si-tion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
+Underfull \hbox (badness 10000) in paragraph at lines 112--112
 \OT1/cmr/m/n/10 put units
  []
 
-<trilateration_problem.jpg, id=25, 95.75775pt x 83.71275pt>
+<trilateration_problem.jpg, id=23, 95.75775pt x 83.71275pt>
 File: trilateration_problem.jpg Graphic file (type jpg)
 
 <use trilateration_problem.jpg>
-Package pdftex.def Info: trilateration_problem.jpg used on input line 119.
+Package pdftex.def Info: trilateration_problem.jpg used on input line 115.
 (pdftex.def)             Requested size: 113.81102pt x 99.50188pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[3 <./bimodal.jpg>] [4 <./trilateration_problem.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 191--191
+ [3 <./bimodal.jpg> <./trilateration_problem.jpg>] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
 []\OT1/cmr/m/n/10 make viz.
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 191--191
+Underfull \hbox (badness 3690) in paragraph at lines 187--187
 \OT1/cmr/m/n/10 smooth and
  []
 
-<non-smoothed-histo.png, id=35, 1156.32pt x 722.7pt>
+<non-smoothed-histo.png, id=34, 1156.32pt x 722.7pt>
 File: non-smoothed-histo.png Graphic file (type png)
 
 <use non-smoothed-histo.png>
-Package pdftex.def Info: non-smoothed-histo.png used on input line 197.
+Package pdftex.def Info: non-smoothed-histo.png used on input line 193.
 (pdftex.def)             Requested size: 181.18439pt x 113.23036pt.
- <smoothed-histo.png, id=37, 1156.32pt x 722.7pt>
+ <smoothed-histo.png, id=36, 1156.32pt x 722.7pt>
 File: smoothed-histo.png Graphic file (type png)
 
 <use smoothed-histo.png>
-Package pdftex.def Info: smoothed-histo.png used on input line 203.
+Package pdftex.def Info: smoothed-histo.png used on input line 199.
 (pdftex.def)             Requested size: 181.18439pt x 113.23036pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[5] <brownian-smoothing-0002.png, id=42, 828.09375pt x 575.14874pt>
+ [5 <./non-smoothed-histo.png> <./smoothed-histo.png>]
+<brownian-smoothing-0002.png, id=44, 828.09375pt x 575.14874pt>
 File: brownian-smoothing-0002.png Graphic file (type png)
 
 <use brownian-smoothing-0002.png>
-Package pdftex.def Info: brownian-smoothing-0002.png used on input line 271.
+Package pdftex.def Info: brownian-smoothing-0002.png used on input line 267.
 (pdftex.def)             Requested size: 135.89174pt x 94.37766pt.
 
-<brownian-smoothing-0004.png, id=43, 870.25125pt x 569.87906pt>
+<brownian-smoothing-0004.png, id=45, 870.25125pt x 569.87906pt>
 File: brownian-smoothing-0004.png Graphic file (type png)
 
 <use brownian-smoothing-0004.png>
-Package pdftex.def Info: brownian-smoothing-0004.png used on input line 277.
+Package pdftex.def Info: brownian-smoothing-0004.png used on input line 273.
 (pdftex.def)             Requested size: 135.89174pt x 88.98251pt.
 
-<brownian-smoothing-0006.png, id=44, 840.13875pt x 578.16pt>
+<brownian-smoothing-0006.png, id=46, 840.13875pt x 578.16pt>
 File: brownian-smoothing-0006.png Graphic file (type png)
 
 <use brownian-smoothing-0006.png>
-Package pdftex.def Info: brownian-smoothing-0006.png used on input line 283.
+Package pdftex.def Info: brownian-smoothing-0006.png used on input line 279.
 (pdftex.def)             Requested size: 135.89174pt x 93.51318pt.
- [6 <./non-smoothed-histo.png> <./smoothed-histo.png> <./brownian-smoothing-000
-2.png> <./brownian-smoothing-0004.png> <./brownian-smoothing-0006.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
+ [6 <./brownian-smoothing-0002.png> <./brownian-smoothing-0004.png> <./brownian
+-smoothing-0006.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 308--308
 \OT1/cmr/m/n/10 to in-clude
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
+Underfull \hbox (badness 10000) in paragraph at lines 308--308
 \OT1/cmr/m/n/10 in-for-ma-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
+Underfull \hbox (badness 10000) in paragraph at lines 308--308
 \OT1/cmr/m/n/10 in-side the
  []
 
 <nonrandomized.jpeg, id=52, 2409.0pt x 1176.395pt>
 File: nonrandomized.jpeg Graphic file (type jpg)
  <use nonrandomized.jpeg>
-Package pdftex.def Info: nonrandomized.jpeg used on input line 321.
+Package pdftex.def Info: nonrandomized.jpeg used on input line 317.
 (pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
 
 <randomized.jpeg, id=53, 2409.0pt x 1176.395pt>
 File: randomized.jpeg Graphic file (type jpg)
  <use randomized.jpeg>
-Package pdftex.def Info: randomized.jpeg used on input line 327.
+Package pdftex.def Info: randomized.jpeg used on input line 323.
 (pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <RatioRandNonrand.jpeg, id=54, 2409.0pt x 1176.395pt>
 File: RatioRandNonrand.jpeg Graphic file (type jpg)
 
 <use RatioRandNonrand.jpeg>
-Package pdftex.def Info: RatioRandNonrand.jpeg used on input line 333.
+Package pdftex.def Info: RatioRandNonrand.jpeg used on input line 329.
 (pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--338
+Underfull \hbox (badness 10000) in paragraph at lines 334--334
 []\OT1/cmr/m/n/10 in gen-eral:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--338
+Underfull \hbox (badness 10000) in paragraph at lines 334--334
 \OT1/cmr/m/n/10 cal-cu-late it
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--338
+Underfull \hbox (badness 10000) in paragraph at lines 334--334
 \OT1/cmr/m/n/10 au-to-mat-i-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--338
+Underfull \hbox (badness 10000) in paragraph at lines 334--334
 \OT1/cmr/m/n/10 cally, with
  []
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 338--338
+Underfull \hbox (badness 1062) in paragraph at lines 334--334
 \OT1/cmr/m/n/10 a con-fi-dence
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 340--340
+Underfull \hbox (badness 1960) in paragraph at lines 336--336
 []\OT1/cmr/m/n/10 mention the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--340
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
 \OT1/cmr/m/n/10 ab-so-lute
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 340--340
+Underfull \hbox (badness 1331) in paragraph at lines 336--336
 \OT1/cmr/m/n/10 num-bers, or
  []
 
+[7 <./nonrandomized.jpeg> <./randomized.jpeg>]
 
-LaTeX Warning: Marginpar on page 7 moved.
+LaTeX Warning: Marginpar on page 8 moved.
 
-[7 <./nonrandomized.jpeg>]
 
-LaTeX Warning: Citation `Johannsson' on page 8 undefined on input line 361.
+LaTeX Warning: Citation `Johannsson' on page 8 undefined on input line 357.
 
-[8 <./randomized.jpeg> <./RatioRandNonrand.jpeg>] (./draft-31052016.bbl
-[9]) [10] (./draft-31052016.aux)
+[8 <./RatioRandNonrand.jpeg>] (./draft-31052016.bbl [9]) [10]
+(./draft-31052016.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3851 strings out of 493089
- 56437 string characters out of 6134843
- 123149 words of memory out of 5000000
- 7255 multiletter control sequences out of 15000+600000
+ 3853 strings out of 493089
+ 56460 string characters out of 6134843
+ 122160 words of memory out of 5000000
+ 7257 multiletter control sequences out of 15000+600000
  13506 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,13n,40p,2255b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -689,7 +679,7 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on draft-31052016.pdf (10 pages, 2788949 bytes).
+Output written on draft-31052016.pdf (10 pages, 2787017 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  82 compressed objects within 1 object stream

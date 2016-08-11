@@ -10,15 +10,20 @@ Jan Amoraal.
   From simulation to implementation.
 \newblock {\em TopQuants}, 2014.
 
+\bibitem{bevington}
+P.R. Bevington and D.~K. Robinson.
+\newblock {\em Data Reduction and Error Analysis for the Physical Sciences}.
+\newblock McGraw-Hill, third edition, 2003.
+
 \bibitem{delafontaine:1}
 M.~Delafontaine, M.~Versichele, T.~Neutens, and N.~Van de~Weghe.
 \newblock Analysing spatiotemporal sequences in bluetooth tracking data.
 \newblock {\em Applied Geography}, 34:659--668, 2012.
 
-\bibitem{helbing:1}
-D.~Helbing, A.~Johansson, and Habib~Zein Al-Abideen.
-\newblock Dynamics of crowd disasters: An empirical study.
-\newblock {\em Physical Review E}, 75, 2007.
+\bibitem{goldsmith}
+A.~Goldsmith.
+\newblock {\em Wireless Communications}.
+\newblock Cambridge University Press, 2004.
 
 \bibitem{Helbing2012}
 Dirk Helbing and Pratik Mukerji.
@@ -33,6 +38,12 @@ Barbara Krausz and Christian Bauckhage.
   2012.
 \newblock Special issue on Semantic Understanding of Human Behaviors in Image
   Sequences.
+
+\bibitem{kushki:1}
+A.~Kushki, K.N. Plataniotis, and A.N. Venetsanoploulos.
+\newblock {\em WLAN Positioning Systems: Principles and Applications in
+  Location-Based Services}.
+\newblock Cambridge University Press, 2012.
 
 \bibitem{Crowded_Scene_Analysis}
 T.~Li, H.~Chang, M.~Wang, B.~Ni, R.~Hong, and S.~Yan.
@@ -79,14 +90,6 @@ J.~Weppner and P.~Lukowicz.
 J.~Weppner, P.~Lukowicz, U.~Blanke, and G.~Tröster.
 \newblock Participatory bluetooth scans serving as urban crowd probes.
 \newblock {\em IEEE SENSORS JOURNAL}, 14(12), 2014.
-
-\bibitem{wirz:1}
-M.~Wirz, T.~Franke, D.~Roggen, E.~Mitleton-Kelly, P.~Lukowicz, and G.~Tröster.
-\newblock Inferring and visualizing crowd conditions by collecting gps location
-  traces from pedestrians mobile phones for real-time crowd monitoring during
-  city-scale mass gatherings.
-\newblock In {\em Collaborative Technology for Coordinating Crisis Management
-  (CT2CM) track of WETICE-2012}, 2012.
 
 \bibitem{wirz:2}
 M.~Wirz, T.~Franke, D.~Roggen, E.~Mitleton-Kelly, P.~Lukowicz, and G.~Tröster.
