@@ -7,45 +7,45 @@ Warning--I didn't find a database entry for "Johannsson"
 Warning--to sort, need author or key in arena
 Warning--empty author in arena
 Warning--empty journal in yoshimura:1
-You've used 18 entries,
+You've used 19 entries,
             2118 wiz_defined-function locations,
-            595 strings with 6785 characters,
-and the built_in function-call counts, 5180 in all, are:
-= -- 476
-> -- 277
+            600 strings with 6913 characters,
+and the built_in function-call counts, 5431 in all, are:
+= -- 498
+> -- 290
 < -- 0
-+ -- 112
-- -- 92
-* -- 349
-:= -- 917
-add.period$ -- 54
-call.type$ -- 18
-change.case$ -- 97
++ -- 117
+- -- 96
+* -- 361
+:= -- 961
+add.period$ -- 57
+call.type$ -- 19
+change.case$ -- 101
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 201
-empty$ -- 402
-format.name$ -- 92
-if$ -- 1053
+cite$ -- 22
+duplicate$ -- 213
+empty$ -- 424
+format.name$ -- 96
+if$ -- 1106
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 22
-newline$ -- 93
-num.names$ -- 34
-pop$ -- 111
+int.to.str$ -- 19
+missing$ -- 24
+newline$ -- 98
+num.names$ -- 36
+pop$ -- 120
 preamble$ -- 1
-purify$ -- 82
+purify$ -- 86
 quote$ -- 0
-skip$ -- 125
+skip$ -- 132
 stack$ -- 0
-substring$ -- 198
-swap$ -- 18
+substring$ -- 203
+swap$ -- 19
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 62
+type$ -- 64
 warning$ -- 3
-while$ -- 40
-width$ -- 20
-write$ -- 192
+while$ -- 42
+width$ -- 21
+write$ -- 202
 (There were 4 warnings)

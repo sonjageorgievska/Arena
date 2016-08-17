@@ -284,6 +284,7 @@ To address the second issue, {\it Volatility of packet rates}, we ensure that we
 	\label{fig:uniform}
 \end{figure}
 
+\begin{comment}
 Formally, for the epochs during which a mobile device is not detected we assume Brownian motion (without drift), which is defined by
 % had to change X to B because I used X for the random variables above. Sorry.
 \begin{equation}
@@ -297,7 +298,7 @@ Thus, in case we have no new observations, we smooth the density estimate from t
 The variance is determined by the length $t$ of the time interval, and the walking speed of pedestrians.
 [Optional: We relate $\sigma^2$ to the walking speed of pedestrians as defined by]
 \begin{equation}
-\sigma^2=\frac{(\Delta B)^2}{\Delta t}
+\sigma^2=\frac{L^2}{\Delta t}
 \end{equation}
 The walking speed of pedestrians can be related to the local crowd density via the so-called \textit{Fundamental Diagram}. 
 The fundamental diagram generally states that walking speed of pedestrians is a decreasing function of the local crowd density [(Weidman 1992)].
@@ -306,6 +307,19 @@ Although all these studies agree on the decreasing form of the function, empiric
 
 Here we use the fundamental diagram as provided by ... [?]
 \marginpar{add rescaling to include information that all visitors are still inside the stadium }
+\end{comment}
+
+Formally, in case we have no new observations, we smooth the probability distribution of the previous epoch by convolution with a Gaussian probability function. The width $\sigma$ of the Gaussian PDF is determined through the conceptual equivalence of this approach with assuming Brownian motion of pedestrians. Brownian motion (without drift), is given by
+\begin{equation}
+\text{d}B(t)=\sqrt{2D}\text{d}W(t)
+\end{equation}
+where $W(t)$ is a Wiener process, and $\sigma$ is related to the diffusion constant $D$ using the relationship
+\begin{equation}
+\sigma=\sqrt{2Dt}
+\end{equation}
+The variance $\sigma^2$ is thus determined by the length $t$ of the time interval (epoch), and the diffusion constant $D$, which in turn can be determined by the walking speed of pedestrians \cite{ebeling}.\\
+
+
 
 
 \subsubsection{MAC address randomization: using Big data again}

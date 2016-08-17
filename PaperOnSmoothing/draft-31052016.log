@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.2)  11 AUG 2016 16:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.2)  17 AUG 2016 16:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -561,90 +561,80 @@ File: brownian-smoothing-0006.png Graphic file (type png)
 <use brownian-smoothing-0006.png>
 Package pdftex.def Info: brownian-smoothing-0006.png used on input line 279.
 (pdftex.def)             Requested size: 135.89174pt x 93.51318pt.
- [6 <./brownian-smoothing-0002.png> <./brownian-smoothing-0004.png> <./brownian
--smoothing-0006.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 308--308
-\OT1/cmr/m/n/10 to in-clude
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--321
+
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 308--308
-\OT1/cmr/m/n/10 in-for-ma-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 308--308
-\OT1/cmr/m/n/10 in-side the
- []
-
-<nonrandomized.jpeg, id=52, 2409.0pt x 1176.395pt>
+[6 <./brownian-smoothing-0002.png> <./brownian-smoothing-0004.png> <./brownian-
+smoothing-0006.png>] <nonrandomized.jpeg, id=52, 2409.0pt x 1176.395pt>
 File: nonrandomized.jpeg Graphic file (type jpg)
- <use nonrandomized.jpeg>
-Package pdftex.def Info: nonrandomized.jpeg used on input line 317.
-(pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
 
-<randomized.jpeg, id=53, 2409.0pt x 1176.395pt>
+<use nonrandomized.jpeg>
+Package pdftex.def Info: nonrandomized.jpeg used on input line 331.
+(pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
+ <randomized.jpeg, id=53, 2409.0pt x 1176.395pt>
 File: randomized.jpeg Graphic file (type jpg)
- <use randomized.jpeg>
-Package pdftex.def Info: randomized.jpeg used on input line 323.
-(pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
 
-<RatioRandNonrand.jpeg, id=54, 2409.0pt x 1176.395pt>
+<use randomized.jpeg>
+Package pdftex.def Info: randomized.jpeg used on input line 337.
+(pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
+ <RatioRandNonrand.jpeg, id=54, 2409.0pt x 1176.395pt>
 File: RatioRandNonrand.jpeg Graphic file (type jpg)
 
 <use RatioRandNonrand.jpeg>
-Package pdftex.def Info: RatioRandNonrand.jpeg used on input line 329.
+Package pdftex.def Info: RatioRandNonrand.jpeg used on input line 343.
 (pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--334
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 []\OT1/cmr/m/n/10 in gen-eral:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--334
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 \OT1/cmr/m/n/10 cal-cu-late it
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--334
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 \OT1/cmr/m/n/10 au-to-mat-i-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 334--334
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 \OT1/cmr/m/n/10 cally, with
  []
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 334--334
+Underfull \hbox (badness 1062) in paragraph at lines 348--348
 \OT1/cmr/m/n/10 a con-fi-dence
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 336--336
+Underfull \hbox (badness 1960) in paragraph at lines 350--350
 []\OT1/cmr/m/n/10 mention the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--336
+Underfull \hbox (badness 10000) in paragraph at lines 350--350
 \OT1/cmr/m/n/10 ab-so-lute
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 336--336
+Underfull \hbox (badness 1331) in paragraph at lines 350--350
 \OT1/cmr/m/n/10 num-bers, or
  []
 
+
+LaTeX Warning: Marginpar on page 7 moved.
+
 [7 <./nonrandomized.jpeg> <./randomized.jpeg>]
 
-LaTeX Warning: Marginpar on page 8 moved.
-
-
-LaTeX Warning: Citation `Johannsson' on page 8 undefined on input line 357.
+LaTeX Warning: Citation `Johannsson' on page 8 undefined on input line 371.
 
 [8 <./RatioRandNonrand.jpeg>] (./draft-31052016.bbl [9]) [10]
 (./draft-31052016.aux)
@@ -653,11 +643,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3853 strings out of 493089
- 56460 string characters out of 6134843
- 122160 words of memory out of 5000000
- 7257 multiletter control sequences out of 15000+600000
- 13506 words of font info for 51 fonts, out of 8000000 for 9000
+ 3851 strings out of 493089
+ 56436 string characters out of 6134843
+ 122164 words of memory out of 5000000
+ 7256 multiletter control sequences out of 15000+600000
+ 12808 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,13n,40p,2255b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -679,7 +669,7 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on draft-31052016.pdf (10 pages, 2787017 bytes).
+Output written on draft-31052016.pdf (10 pages, 2786452 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  82 compressed objects within 1 object stream
