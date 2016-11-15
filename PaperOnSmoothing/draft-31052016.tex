@@ -55,20 +55,28 @@ The rest of the paper is organized as follows. In Sec. \ref{sec:positioning} we 
 \label{sec:positioning}
 
 
-This section will be written later, maybe with input from Jan. 
+\marginpar{to be polished}
+We estimate the positions of smart phones using a method based on lateration. 
+The lateration method uses the distances between a smart phone and multiple reference points, which in this case are the existing Wi-Fi access points (AP's) in the stadium (see Fig. \ref{fig:trilateration}\footnote{Image courtesy of http://rvmiller.com/2013/05/part-1-wifi-based-trilateration-on-android/ }).
+Smart phones transmit Wi-Fi signals which are captured at the AP's.
+The captured Wi-Fi signals contain information about the measured signal strength.
+Using a physical model for the relationship between the received signal strength (RSS) of the Wi-Fi signal and the distance between a transmitter and receiver, the distance between the smart phone and the AP is estimated. When we have the distances from a smart phone to at least three AP's, the position of the smart phone can be uniquely determined at the intersection of three circles (Fig. \ref{fig:trilateration}a.) \cite{kushki:1}.
 
-The positions of smart phones are reconstructed using methods based on lateration. 
-The lateration method uses the distances between a smart phone and multiple reference points, which in this case are the existing Wi-Fi access points (APs) in the stadium.
-Smart phones transmit Wi-Fi signals which are captured at the APs.
-The captured Wi-Fi signals contain information about the mesaured signal strength.
-Using a model for the relationship between the received signal strength (RSS) of the Wi-Fi signal and the distance between transmitter and receiver, the distance between smart phone and the AP is estimated.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=80mm]{trilateration.png}
+	\caption{Estimating position with trilateration: a) precise b) rough }
+	\label{fig:trilateration}
+\end{figure}
+\begin{comment}
 The distance between the position $(x,y)$ (in two dimensions) of the mobile device and the position $(x_{i},y_{i})$ of AP $i$, given by 
 \begin{equation}
 r_{i}^2=(x-x_{i})^2+(y-y_{i})^2
 \label{distance}
 \end{equation}
 The distances define circles with radius $r_{i}$ around the APs on which the transmitter may be located.
-When we have at least three such circles, the position of a transmitter can be uniquely determined at the intersection of the circles \cite{kushki:1}.
+\end{comment}
+
 
 The RSS value of a signal decreases when the distance between transmitter and receiver increases.
 The decrease is given by a path loss model, given by the Friis equation
@@ -78,12 +86,14 @@ P_{R}=P_{T}+10\lambda\log_{10}(\frac{c}{4\pi fr})
 \end{equation}
 where we use $\lambda=2$ (line of sight condition), $c$ is the speed of light, $f$ is 2.4 GHz, and $r$ is the distance between the mobile device and the AP.\\
 The measured RSS values contain unpredictable variation due to noise, and interference such as absorption and reflection by obstacles between transmitter and receiver (shadowing and multipath effects) \cite{goldsmith}. The positions of these obstacles may change in time, in particular in the case of human bodies.
-As a result, the circles in the lateration method do not intersect at a unique point, and the system of equations defined in Equation \ref{distance} do not have an exact solution.
-In this case a statistical approach is taken to the determination of the position of the smart phone.
-The least squares method is used, which in our case takes the form of a chi-square data fit \cite{bevington}.
+As a result, the circles in the lateration method do not intersect at a unique point (see e.g. Fig.\ref{fig:trilateration}). 
+In this case an optimization procedure is undertaken for positioning of the smart phone.
+We use the least squares optimization method, which in our case takes the form of a chi-square data fit. Exact description of the method is beyond the scope of this paper and we refer the reader to \cite{bevington} for details. We note, however, that the statistical estimation of the position provides as also with standard deviation $\sigma$ of the estimation, which we will use in Sec. \ref{sec:density}.
+\begin{comment}
 Based on the chi-square fit, uncertainty values for the parameter estimates are calculated.
 These values represent parameter uncertainties that correspond to a $1\sigma$ error or an increase of $\chi^2+1$. 
 The $1\sigma$ error values form the input to the smoothing method of the density estimation discussed in this paper.
+\end{comment}
 
 \begin{comment}
 The technology we deploy is based on the Wi-Fi signals from smart phones. We use the existing network of Wi-Fi access points in the stadium, and capture probe signals from smart phones, which are processed and anonymised in alignment with privacy concerns. The positions of smart phones are reconstructed using received signal strength (RSS) values and methods similar to multi-lateration. 
@@ -184,7 +194,7 @@ From this data we wish to estimate the spatial probability distribution for an a
 So, our first step is to select from the data the estimated $N$ positions whose time stamps fall within a specified time interval $[t-\Delta t,t]$.
 A natural way to construct a two-dimensional probability distribution would be to construct a histogram, by binning the positions and normalizing with $N$.
 However, we also wish to preserve the uncertainty that corresponds to each estimated position.
-Therefore, we first "smooth" each position into a bivariate Gaussian distribution (`bump'), using the uncertainty values ($\sigma_{x}$ and $\sigma_{y}$) provided by the data as standard deviations. Then, for  $m$ we construct a two-dimensional probability density function (p.d.f.) by adding up these bumps, and  dividing the sum by $N$.\marginpar{make viz. smooth and not dark}. (In Fig. \ref{fig:smoothing} we show the result of smoothing a histogram of the device discussed in Fig.\ref{fig:bimodal}.) %For example, 
+Therefore, we first "smooth" each position into a bivariate Gaussian distribution (`bump'), using the uncertainty values ($\sigma_{x}$ and $\sigma_{y}$) provided by the position estimation method as standard deviations. Then, for  $m$ we construct a two-dimensional probability density function (p.d.f.) by adding up these bumps, and  dividing the sum by $N$.\marginpar{make viz. smooth and not dark}. (In Fig. \ref{fig:smoothing} we show the result of smoothing a histogram of the device discussed in Fig.\ref{fig:bimodal}.) %For example, 
 
 \begin{figure}[h!]
 	\centering
