@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.21)  30 NOV 2016 10:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.21)  19 JAN 2017 18:11
 entering extended mode
 **./draft-31052016.tex
 (draft-31052016.tex
@@ -628,19 +628,19 @@ Package pdftex.def Info: trilateration_problem.jpg used on input line 128.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3 <./bimodal.jpg>] [4 <./trilateration_problem.jpg>]
-Overfull \hbox (7.324pt too wide) in paragraph at lines 187--188
+Overfull \hbox (7.324pt too wide) in paragraph at lines 188--189
 \OT1/cmr/m/it/10 dis-tributed, such that they al-ways take val-ues in a bounded
  real in-ter-val. Sup-pose that the set $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 X[]
 ; X[]; :::X[]\OMS/cmsy/m/n/10 g$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--209
+Underfull \hbox (badness 10000) in paragraph at lines 208--208
 []\OT1/cmr/m/n/10 make viz.
  []
 
 
-Underfull \hbox (badness 3690) in paragraph at lines 209--209
+Underfull \hbox (badness 3690) in paragraph at lines 208--208
 \OT1/cmr/m/n/10 smooth and
  []
 
@@ -648,125 +648,74 @@ Underfull \hbox (badness 3690) in paragraph at lines 209--209
 File: non-smoothed-histo.png Graphic file (type png)
 
 <use non-smoothed-histo.png>
-Package pdftex.def Info: non-smoothed-histo.png used on input line 215.
+Package pdftex.def Info: non-smoothed-histo.png used on input line 214.
 (pdftex.def)             Requested size: 181.18439pt x 113.23036pt.
  <smoothed-histo.png, id=41, 1156.32pt x 722.7pt>
 File: smoothed-histo.png Graphic file (type png)
 
 <use smoothed-histo.png>
-Package pdftex.def Info: smoothed-histo.png used on input line 221.
+Package pdftex.def Info: smoothed-histo.png used on input line 220.
 (pdftex.def)             Requested size: 181.18439pt x 113.23036pt.
 
 <brownian-smoothing-0002.png, id=42, 828.09375pt x 575.14874pt>
 File: brownian-smoothing-0002.png Graphic file (type png)
 
 <use brownian-smoothing-0002.png>
-Package pdftex.def Info: brownian-smoothing-0002.png used on input line 289.
+Package pdftex.def Info: brownian-smoothing-0002.png used on input line 288.
 (pdftex.def)             Requested size: 135.89174pt x 94.37766pt.
 
 <brownian-smoothing-0004.png, id=43, 870.25125pt x 569.87906pt>
 File: brownian-smoothing-0004.png Graphic file (type png)
 
 <use brownian-smoothing-0004.png>
-Package pdftex.def Info: brownian-smoothing-0004.png used on input line 295.
+Package pdftex.def Info: brownian-smoothing-0004.png used on input line 294.
 (pdftex.def)             Requested size: 135.89174pt x 88.98251pt.
 
 <brownian-smoothing-0006.png, id=44, 840.13875pt x 578.16pt>
 File: brownian-smoothing-0006.png Graphic file (type png)
 
 <use brownian-smoothing-0006.png>
-Package pdftex.def Info: brownian-smoothing-0006.png used on input line 301.
+Package pdftex.def Info: brownian-smoothing-0006.png used on input line 300.
 (pdftex.def)             Requested size: 135.89174pt x 93.51318pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [6 <./non-smoothed-histo.png> <./smoothed-histo.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 341--343
+Underfull \hbox (badness 10000) in paragraph at lines 340--342
 
  []
 
-<nonrandomized.jpeg, id=50, 2409.0pt x 1176.395pt>
-File: nonrandomized.jpeg Graphic file (type jpg)
- <use nonrandomized.jpeg>
-Package pdftex.def Info: nonrandomized.jpeg used on input line 353.
-(pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
+<rand_nonrand.png, id=50, 383.031pt x 271.7352pt>
+File: rand_nonrand.png Graphic file (type png)
+ <use rand_nonrand.png>
+Package pdftex.def Info: rand_nonrand.png used on input line 353.
+(pdftex.def)             Requested size: 284.52756pt x 201.86868pt.
 
-<randomized.jpeg, id=51, 2409.0pt x 1176.395pt>
-File: randomized.jpeg Graphic file (type jpg)
- <use randomized.jpeg>
-Package pdftex.def Info: randomized.jpeg used on input line 359.
-(pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
+<ratio_hist.png, id=51, 372.1905pt x 267.399pt>
+File: ratio_hist.png Graphic file (type png)
+ <use ratio_hist.png>
+Package pdftex.def Info: ratio_hist.png used on input line 360.
+(pdftex.def)             Requested size: 284.52756pt x 204.41676pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<RatioRandNonrand.jpeg, id=52, 2409.0pt x 1176.395pt>
-File: RatioRandNonrand.jpeg Graphic file (type jpg)
-
-<use RatioRandNonrand.jpeg>
-Package pdftex.def Info: RatioRandNonrand.jpeg used on input line 365.
-(pdftex.def)             Requested size: 369.88582pt x 180.6161pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
-[]\OT1/cmr/m/n/10 in gen-eral:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
-\OT1/cmr/m/n/10 cal-cu-late it
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
-\OT1/cmr/m/n/10 au-to-mat-i-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
-\OT1/cmr/m/n/10 cally, with
- []
-
-
-Underfull \hbox (badness 1062) in paragraph at lines 370--370
-\OT1/cmr/m/n/10 a con-fi-dence
- []
-
-
-Underfull \hbox (badness 1960) in paragraph at lines 372--372
-[]\OT1/cmr/m/n/10 mention the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 372--372
-\OT1/cmr/m/n/10 ab-so-lute
- []
-
-
-Underfull \hbox (badness 1331) in paragraph at lines 372--372
-\OT1/cmr/m/n/10 num-bers, or
- []
 
 [7 <./brownian-smoothing-0002.png> <./brownian-smoothing-0004.png> <./brownian-
-smoothing-0006.png> <./nonrandomized.jpeg>] [8 <./randomized.jpeg> <./RatioRand
-Nonrand.jpeg>]
+smoothing-0006.png> <./rand_nonrand.png>]
 
-LaTeX Warning: Citation `Johannsson' on page 9 undefined on input line 393.
+LaTeX Warning: Citation `Johannsson' on page 8 undefined on input line 387.
 
-(draft-31052016.bbl [9]) [10] (draft-31052016.aux)
+[8 <./ratio_hist.png>] (draft-31052016.bbl [9]) [10] (draft-31052016.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3989 strings out of 493335
- 57524 string characters out of 3136680
- 124830 words of memory out of 3000000
- 7439 multiletter control sequences out of 15000+200000
+ 3982 strings out of 493335
+ 57358 string characters out of 3136680
+ 124822 words of memory out of 3000000
+ 7434 multiletter control sequences out of 15000+200000
  12808 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,13n,40p,2234b,373s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -789,9 +738,9 @@ ype1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmti8.pfb>
-Output written on draft-31052016.pdf (10 pages, 2826815 bytes).
+Output written on draft-31052016.pdf (10 pages, 2120096 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
