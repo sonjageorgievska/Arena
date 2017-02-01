@@ -345,7 +345,7 @@ The variance $\sigma^2$ is thus determined by the length $t$ of the time interva
 
 \subsubsection{MAC address randomization}
 
-To address the last issue, {\it MAC address randomization}, we rely once again on the fact that we have a lot of data. Namely, we know from the structure of the MAC address whether it has been randomized or not. Figure \ref{fig:nonrandomizedadresses} shows numbers of non-randomized and randomized adresses observed per minute from midnight until around 6:00 am. We can see that their ratio is quite stable through time; in fact, the Pearson correlation coefficient between the time series of randomized and non-randomized addresses is 0.98. 
+To address the last issue, {\it MAC address randomization}, we rely once again on the fact that we have a lot of data. Namely, we know from the structure of the MAC address whether it has been randomized or not. Figure \ref{fig:nonrandomizedadresses} shows numbers of non-randomized and randomized adresses observed per minute from midnight until around 6:00 am. We can see that their ratio is quite stable through time (Fig. \ref{fig:ratio_dist}); in fact, the Pearson correlation coefficient between the time series of randomized and non-randomized addresses is 0.98. 
  
 
 \begin{figure}[h!]
@@ -362,8 +362,7 @@ To address the last issue, {\it MAC address randomization}, we rely once again o
 	\label{fig:ratio_dist}
 \end{figure} 
 
-\noindent Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by a factor, to account for the ignored MAC devices. We choose factor 1.22 to allow for a safety margin: we would rather overestimate than underestimate the crowd density. The ratio  0.22 is the meam plus the standard deviation of the distribution of ratios between randomized and non-randomized addresses observed per minute (Fig \ref{fig:ratio_dist}), but in general it depends on how much underestimation/overestimation is desired. Note also that this ratio should be re-computed periodically, to account for the changing conditions at the smart phones market. 
-
+\noindent Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by a factor, to account for the ignored MAC devices. We choose factor 1.22 to allow for a safety margin: we would rather overestimate than underestimate the crowd density. \marginpar{maybe show percentage of total number of addresses rather than ratio to make it bounded?}The ratio  0.22 is the mean plus the standard deviation of the distribution of ratios between randomized and non-randomized addresses observed per minute (Fig \ref{fig:ratio_dist}), but in general it depends on how much underestimation/overestimation is desired. Note also that this ratio should be re-computed periodically, to account for the changing conditions at the smart phones market. 
 
 
 
