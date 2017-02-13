@@ -167,7 +167,7 @@ Var(\frac{X}{n} ) =  Var(\frac{1}{n} \cdot \sum_{i=1}^{n} X_i) = \frac{1}{n^2} \
 \end{equation}
 
 
-It is reasonable to assume that there is an upper limit $\lambda$ of a number of people that go to a concert together (a group), that is, whose locations are correlated\footnote{Actually, when the crowd is so dense that people can not move freely anymore, the whole crowd becomes a "group" (as in the  Love Parade disaster) and all locations are correlated. But we aim to detect a high density with our method {\it before} this happens, to react preventively; otherwise, it is too late. However, it is important as future work to study at which density groups start to merge, in light of studies such as \cite{density}.}. Note that because the random variables $\{X_i\}_{i=1}^n$ take values in $\{0,1\}$, the covariances $Cov(X_i,X_j)$ take values in $[-1,1]$. Thus,  the covariances are right-bounded (by $1$). Denote by $\kappa$ the maximal covariance between any $X_i$ and $X_j$ and let us write $i \sim j$ if and only if the owners of the MAC devices $mac_i$ and $mac_j$ are in the same group of friends. 
+It is reasonable to assume that there is an upper limit $\lambda$ of a number of people that go to a concert together (a group), that is, whose locations are correlated\footnote{Actually, when the crowd is so dense that people can not move freely anymore, the whole crowd becomes a "group" (as in the  Love Parade disaster) and all locations are correlated. But we aim to detect a high density with our method {\it before} this happens, to react preventively; otherwise, it is too late. However, it is important as future work to study at which density groups start to merge, in light of studies such as \cite{density}.}. Note that because the random variables $\{X_i\}_{i=1}^n$ take values in $\{0,1\}$, the covariances $Cov(X_i,X_j)$ take values in $[-1,1]$. Thus,  the covariances are right-bounded (by $1$). Denote by $\kappa \leq 1$ the maximal covariance between any $X_i$ and $X_j$ and let us write $i \sim j$ if and only if the owners of the MAC devices $mac_i$ and $mac_j$ are in the same group of friends. 
 Then, 
 \begin{equation}\label{eq_covar}
 \sum_{i \not =  j}Cov(X_i,X_j) = 2 \sum_{1\leq i <  j \leq n }Cov(X_i,X_j) =  2 \sum_{i,j: i \sim j }Cov(X_i,X_j)  \leq 2 n \cdot \frac{\lambda(\lambda - 1)}{2} \cdot\kappa = n  \kappa \lambda(\lambda - 1)
@@ -263,7 +263,7 @@ To take in account that visitors are moving, we subdivide the time window in mul
 \subsubsection{Volatility of packet rates: Applying "conservation of mass" principle }
 
 (Needs to be finished.)
-To address the second issue, {\it Volatility of packet rates}, we ensure that we do not forget about the MAC devices that were not observed in the last time window. In fact, for every MAC device that was ever observed, until it has been observed again we maintain the old probability distribution, too. Over time this probability distribution turns gradually into a uniform by smoothing it every epoch with a Gaussian kernel (see Fig. \ref{fig:uniform} for an example). The size of the kernel changes over time and is related to the maximal speed that the MAC device can have under the current density distribution of the crowd. In other words, we assume a Brownian motion of the MAC device, where the speed is limited by the maximal speed of a pedestrian under the current crowd conditions (cite paper Johansson et al). When the MAC device is observed again, its old probability distribution is simply overwritten by the probability distribution that is computed as above.\marginpar{ref.  picture}
+To address the second issue, {\it Volatility of packet rates}, we ensure that we do not forget about the MAC devices that were not observed in the last time window. In fact, for every MAC device that was ever observed, until it has been observed again we maintain the old probability distribution, too. Over time this probability distribution becomes gradually uniform by smoothing it every epoch with a Gaussian kernel (see Fig. \ref{fig:uniform} for an example). The size of the kernel changes over time and is related to the maximal speed that a person can have under the current density distribution of the crowd. In other words, we assume a Brownian motion of the MAC device, where the speed is limited by the maximal speed of a pedestrian under the current crowd conditions (cite paper Johansson et al). When the MAC device is observed again, its old probability distribution is simply overwritten by the probability distribution that is computed as above. \marginpar{most of the time the speed is close to 0. especially for concert crowds; it cannot be however bigger than the max speed by Johansson}
 
 %\begin{figure}[h!]
 %	\begin{subfigure}
@@ -345,7 +345,7 @@ The variance $\sigma^2$ is thus determined by the length $t$ of the time interva
 
 \subsubsection{MAC address randomization}
 
-To address the last issue, {\it MAC address randomization}, we rely once again on the fact that we have a lot of data. Namely, we know from the structure of the MAC address whether it has been randomized or not. Figure \ref{fig:nonrandomizedadresses} shows numbers of non-randomized and randomized adresses observed per minute from midnight until around 6:00 am. We can see that their ratio is quite stable through time (Fig. \ref{fig:ratio_dist}); in fact, the Pearson correlation coefficient between the time series of randomized and non-randomized addresses is 0.98. 
+To address the last issue, {\it MAC address randomization}, we rely once again on the fact that we have a lot of data. Namely, we know from the structure of the MAC address whether it has been randomized or not. Figure \ref{fig:nonrandomizedadresses} shows numbers of non-randomized and randomized addresses observed per minute from midnight until around 6:00 am. We can see that their ratio is quite stable through time (Fig. \ref{fig:ratio_dist}); in fact, the Pearson correlation coefficient between the time series of randomized and non-randomized addresses is 0.88. 
  
 
 \begin{figure}[h!]
@@ -357,19 +357,21 @@ To address the last issue, {\it MAC address randomization}, we rely once again o
  
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=100mm]{ratio_hist.png}
-	\caption{Distribution of ratios between randomized and non-randomized addresses observed per minute}
-	\label{fig:ratio_dist}
+	\includegraphics[width=100mm]{regRand.png}
+	\caption{Linear regression plot of randomized and non-randomized addresses observed per minute}
+	\label{fig:regRand}
 \end{figure} 
 
-\noindent Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by a factor, to account for the ignored MAC devices. We choose factor 1.22 to allow for a safety margin: we would rather overestimate than underestimate the crowd density. \marginpar{maybe show percentage of total number of addresses rather than ratio to make it bounded?}The ratio  0.22 is the mean plus the standard deviation of the distribution of ratios between randomized and non-randomized addresses observed per minute (Fig \ref{fig:ratio_dist}), but in general it depends on how much underestimation/overestimation is desired. Note also that this ratio should be re-computed periodically, to account for the changing conditions at the smart phones market. 
+\noindent Thus, when estimating crowd density, we ignore the MAC devices that have a randomized address and at the end we multiply the crowd density by a factor, to account for the ignored MAC devices. This factor is derived from the slope of the linear regression fit of the two time series, which in our case turns out to be 0.2, with a standard error of 0.006. 
+
+Note also that this proportion should be re-computed periodically, to account for the changing conditions at the smart phones market, but also for the fact that an increasing number of stadiums across the world offer "smart" services that motivate visitors to connect to the Wi-Fi network, which makes their MAC addresses non-randomized (fixed). 
 
 
 
 \section{Validation}\label{sec:validation}
 To be done.
 Hopefully with official videos from the organizational team of  Sensation 2015 Amsterdam White.
-Note that by validation we mean more of calibration. In general the approach is theoretically valid, which we show in Sec.\ref{sec:density}.2.1, but we are using parameters in the model that need to be calibrated. We need independent data sets (videos) for calibration and testing, to avoid overfitting. Also the paremeters should be as much as possible initially optimized from the Wi-Fi data itself and from theory.
+Note that by validation we mean more of calibration. In general the approach is theoretically valid, which we show in Sec.\ref{sec:density}.2.1, but we are using parameters in the model that need to be calibrated. We need independent data sets (videos) for calibration and testing, to avoid overfitting. Also the paremeters should be as much as possible initially optimized from the Wi-Fi data itself and from theory.\marginpar{don't forget to add 'before' and 'after' videos or images}
 
 \section{Related work}\label{sec:relatedwork}
 In progress. 
